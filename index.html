@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>住得合拍 · LIVING IN SYNC</title>
+<meta name="lis-build" content="2026-10-07-production-1">
+<meta name="description" content="让一起住的人，在真正一起生活之前，先知道彼此在意什么。" />
+<style>
+:root{
+  --bg:#eee9e8;--paper:#fffdfc;--ink:#252327;--muted:#817c82;--line:#ece5e4;
+  --rose:#dfb7bd;--rose-dark:#9f676f;--lav:#dcd7eb;--blue:#d9e7ef;--mint:#dfe9df;--yellow:#f4e2b8;
+  --shadow:0 20px 60px rgba(78,55,61,.09);--shadow-sm:0 10px 26px rgba(78,55,61,.07)
+}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}button,input,textarea{font:inherit}button{cursor:pointer}
+.app{min-height:100vh;max-width:560px;margin:0 auto;background:linear-gradient(180deg,#fcfaf9 0%,#fbf8f6 100%);position:relative;overflow:visible}.app:before{content:"";position:absolute;top:-180px;right:-160px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#f4e6e8 0%,rgba(244,230,232,0) 68%);pointer-events:none}
+.topbar{position:relative;top:0;z-index:20;background:rgba(252,250,249,.84);border-bottom:1px solid rgba(236,229,228,.82)}.topbar-inner{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 18px}.brand{display:flex;align-items:center;gap:10px;font-weight:780}.brand-mark{width:38px;height:38px;border-radius:14px;background:linear-gradient(145deg,#f2dfe2,#dcd7eb);display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}.brand-mark img{width:100%;height:100%;object-fit:contain;padding:4px;display:block}.brand small{display:block;color:#a29b9f;font-weight:600;font-size:9px;letter-spacing:.08em;margin-top:-1px}.header-pill{padding:8px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--rose-dark);font-size:11px;font-weight:800;box-shadow:var(--shadow-sm)}
+.page{padding:0 18px 110px;position:relative;z-index:1}.screen{display:none}.screen.active{display:block}.hero{padding:34px 0 18px}.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--rose-dark);font-weight:800;letter-spacing:.08em}.hero h1{font-size:42px;line-height:1.06;letter-spacing:-.055em;margin:14px 0}.hero p{color:var(--muted);font-size:15px;margin:0;max-width:430px}
+.hero-visual{margin-top:25px;padding:21px;border-radius:30px;background:linear-gradient(145deg,#f8ecee,#f0edf5);border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow);overflow:hidden;position:relative}.hero-visual:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-25px;bottom:-58px;background:rgba(255,255,255,.34)}.visual-head{display:flex;justify-content:space-between;align-items:center}.mini-pill{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.78);font-size:10px;font-weight:800;color:#806a70}.mini-note{font-size:10px;color:#8f858b}.people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px;position:relative;z-index:2}.mini-person{background:rgba(255,255,255,.84);border:1px solid rgba(255,255,255,.95);border-radius:19px;padding:13px;box-shadow:0 14px 30px rgba(97,73,81,.07)}.mini-dot{width:30px;height:30px;border-radius:11px;display:grid;place-items:center;font-weight:900;margin-bottom:10px}.mini-person:nth-child(1) .mini-dot{background:#f4dfe3;color:#9d626d}.mini-person:nth-child(2) .mini-dot{background:#e3def0;color:#766d8e}.mini-person:nth-child(3) .mini-dot{background:#dfe9df;color:#6c8a75}.mini-person b{font-size:12px}.mini-person p{font-size:9px;color:#8c8288;margin:2px 0 0}.merge{display:none}.hero-copy-note{margin-top:14px;position:relative;z-index:2}.hero-copy-note b{font-size:16px}.hero-copy-note div{font-size:11px;color:#887f84;margin-top:3px}
+.cta{margin-top:17px;width:100%;border:0;border-radius:19px;padding:16px 18px;background:linear-gradient(135deg,#2c292d,#4a4249);color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center;box-shadow:0 16px 34px rgba(43,37,41,.16)}.cta span:last-child{font-size:19px}.secondary{margin-top:10px;width:100%;border:1px solid var(--line);border-radius:17px;padding:14px 16px;background:#fff;color:#746d72;font-weight:800}.note{text-align:center;font-size:11px;color:#9a9296;margin-top:10px}
+.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:32px 0 14px}.section-title h2{margin:0;font-size:20px;letter-spacing:-.03em}.section-title span{font-size:11px;color:#a49da1}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.feature{background:rgba(255,253,252,.86);padding:17px;border:1px solid var(--line);border-radius:21px;min-height:150px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}.feature:after{content:"";position:absolute;right:-20px;bottom:-25px;width:72px;height:72px;border-radius:50%;background:#f2ecec;opacity:.75}.feature .num{width:30px;height:30px;border-radius:11px;display:grid;place-items:center;font-size:12px;font-weight:900;margin-bottom:18px}.feature:nth-child(1) .num{background:#f5e1e4;color:#a86f78}.feature:nth-child(2) .num{background:#e6e1f0;color:#796f91}.feature:nth-child(3) .num{background:#f5e9c9;color:#a48744}.feature:nth-child(4) .num{background:#dde9e0;color:#6c8a75}.feature h3{font-size:15px;margin:0 0 6px}.feature p{font-size:12px;color:var(--muted);margin:0;line-height:1.55}.section-soft{margin-top:16px;padding:17px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(140deg,#fffafa,#f8f3f6)}.soft-row{display:flex;gap:10px;align-items:flex-start}.soft-icon{width:34px;height:34px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none}.soft-row b{font-size:13px}.soft-row p{margin:3px 0 0;color:var(--muted);font-size:11px}
+.back{border:0;background:transparent;padding:12px 0;color:#8d868a;font-size:13px}.progress{height:7px;background:#eee8e9;border-radius:999px;overflow:hidden;margin:11px 0 22px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#d9afb7,#cbbfe2);border-radius:999px;transition:width .25s}
+.room-card{background:rgba(255,253,252,.93);border:1px solid var(--line);border-radius:25px;padding:22px;box-shadow:var(--shadow);margin-top:12px}.room-card h2{font-size:25px;line-height:1.15;margin:8px 0}.room-card p{font-size:13px;color:var(--muted);margin:0 0 18px}.field{margin-top:15px}.field label{display:block;font-size:11px;font-weight:800;color:#81787e;margin-bottom:7px}.field input{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 14px;outline:none}.field input:focus{border-color:#cdb4bc;box-shadow:0 0 0 4px rgba(213,177,184,.12)}.count-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.count-btn{border:1px solid var(--line);background:#fff;border-radius:15px;padding:11px 5px;font-size:12px;font-weight:800;color:#736b70}.count-btn.active{background:#f4eef7;border-color:#cfc4df;color:#6e6385}.helper{font-size:10px;color:#9a9296;margin-top:7px}
+.invite-card{margin-top:12px;padding:21px;border-radius:25px;background:linear-gradient(145deg,#f7ebed,#eeeaf5);border:1px solid var(--line);box-shadow:var(--shadow)}.invite-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.invite-num{font-size:40px;font-weight:850;letter-spacing:-.06em}.invite-top small{font-size:10px;color:#81777d;text-align:right}.invite-link{margin-top:16px;padding:12px 13px;border-radius:14px;background:rgba(255,255,255,.76);border:1px dashed #d7cccf;color:#776f73;font-size:10px;word-break:break-all}
+.step-note{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}.step-note span{font-size:11px;color:#92898e}.participant-row{display:flex;gap:8px;flex-wrap:wrap;margin:7px 0 5px}.participant-chip{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:10px;color:#746b71}.participant-chip.you{background:#f7ebed;border-color:#ead0d4;color:#98616a}
+.question-card{background:rgba(255,253,252,.93);border:1px solid var(--line);border-radius:25px;padding:23px;box-shadow:var(--shadow)}.question-card .tiny{font-size:10px;color:#a49ca0;font-weight:700}.question-card h2{font-size:26px;line-height:1.18;margin:8px 0}.question-card p{font-size:13px;color:var(--muted);margin:0 0 18px}.options{display:grid;gap:10px}.option{width:100%;text-align:left;background:#fff;border:1px solid var(--line);padding:14px 15px;border-radius:17px;transition:.18s}.option.selected{border-color:#d5b1b8;background:#fbf1f3;box-shadow:0 0 0 3px rgba(215,177,184,.13)}.option strong{display:block;font-size:14px}.option span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.flexity{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}.flexity-label{font-size:11px;color:#8b8287;font-weight:800;margin-bottom:8px}.flexity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.flexity button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 7px;font-size:10px;color:#6f686d;font-weight:800;line-height:1.35}.flexity button.active{background:#f4eef7;border-color:#cfc4df;color:#6e6385}.row-actions{display:flex;gap:10px;margin-top:15px}.ghost,.primary{flex:1;border-radius:17px;padding:14px 16px;font-weight:800}.ghost{background:#fff;border:1px solid var(--line);color:#746d72}.primary{background:#302c31;color:#fff;border:1px solid #302c31}
+.result-hero{margin-top:15px;padding:22px;border-radius:28px;background:linear-gradient(145deg,#f7ebed,#eeeaf5);border:1px solid var(--line);box-shadow:var(--shadow)}.result-hero .tiny{font-size:11px;color:#8c8288;font-weight:800}.result-hero h2{font-size:28px;line-height:1.15;margin:8px 0}.result-hero p{font-size:12px;color:#827980;margin:0}.focus-row{display:flex;align-items:center;gap:14px;margin-top:18px;padding:14px 15px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9)}.focus-number{display:flex;align-items:baseline;gap:4px;min-width:58px}.focus-number strong{font-size:48px;line-height:1;font-weight:850;letter-spacing:-.06em;color:#5e5058}.focus-number span{font-size:12px;font-weight:800;color:#8b7f85}.focus-copy b{display:block;font-size:13px;color:#655960}.focus-copy span{display:block;font-size:10px;color:#958a90;margin-top:3px}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:#81787e;margin-top:13px}.legend span{display:inline-flex;align-items:center;gap:5px}.dot{width:7px;height:7px;border-radius:50%}.dot.high{background:#c98b95}.dot.mid{background:#cfb9cf}.dot.low{background:#aac3b1}
+.profile-section{margin-top:15px}.profile-title{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:10px}.profile-title h3{margin:0;font-size:18px}.profile-title span{font-size:10px;color:#978d93}.profile-grid{display:grid;gap:10px}.profile-card{background:linear-gradient(145deg,#fffafa,#f3eef5);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow-sm)}.profile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.profile-name{font-size:17px;font-weight:850}.profile-type{font-size:11px;color:#866f77;margin-top:3px}.profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.profile-tag{padding:7px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:10px;color:#6f676d}.profile-copy{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:11px;color:#756d72;line-height:1.6}.group-profile{margin-top:15px;padding:19px;border-radius:24px;background:linear-gradient(145deg,#f9ecef,#eef0f6);border:1px solid var(--line);box-shadow:var(--shadow)}.group-profile h3{margin:0;font-size:19px}.group-profile p{margin:5px 0 0;color:#7f777d;font-size:11px}.profile-mix{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.profile-mix span{padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.95);font-size:10px;color:#756d72}.profile-note{margin-top:11px;font-size:10px;color:#91878d}..group-summary{margin-top:15px;background:rgba(255,253,252,.9);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow-sm)}.summary-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.summary-head b{font-size:13px}.summary-head span{font-size:10px;color:#92888e}.chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.summary-chip{padding:7px 9px;border-radius:999px;background:#f6f1f0;font-size:10px;color:#6f676d}.compare-section-title{margin-top:22px;padding:0 2px}.compare-section-title h3{margin:0;font-size:17px}.compare-section-title span{display:block;margin-top:3px;color:#968d92;font-size:10px}.compare-list{display:none;gap:11px;margin-top:11px}.compare-list.open{display:grid}.talk-card .secondary{margin-top:12px}.talk-card{margin-top:15px}.compare-card{background:rgba(255,253,252,.9);border:1px solid var(--line);border-radius:21px;padding:16px;box-shadow:var(--shadow-sm)}.compare-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.compare-name{display:flex;gap:10px;align-items:center}.compare-icon{width:32px;height:32px;border-radius:12px;display:grid;place-items:center;background:#f3ecee}.compare-card h4{font-size:14px;margin:0}.compare-card .sub{font-size:10px;color:#938a8f;margin-top:2px}.level{padding:6px 8px;border-radius:999px;font-size:10px;font-weight:800;white-space:nowrap}.level.high{background:#f6e1e3;color:#9c626d}.level.mid{background:#eee8f1;color:#756b8d}.level.low{background:#e5efe6;color:#6d8974}.people-values{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.value-box{background:#fff;border:1px solid var(--line);border-radius:15px;padding:10px}.value-box .who{font-size:10px;color:#9a9196}.value-box b{display:block;font-size:11px;margin-top:2px}.value-box span{display:block;font-size:9px;color:#8b8187;margin-top:2px}.compare-reason{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:#756d72}
+.talk-card{margin-top:15px;padding:19px;border:1px solid var(--line);border-radius:23px;background:linear-gradient(145deg,#fffafa,#f5f0f3);box-shadow:var(--shadow-sm)}.talk-card h3{font-size:17px;margin:0}.talk-card p{font-size:11px;color:var(--muted);margin:4px 0 13px}.three-list{display:grid;gap:9px}.three-item{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px}.three-num{width:28px;height:28px;border-radius:10px;background:#f3e8eb;color:#98616a;display:grid;place-items:center;font-size:10px;font-weight:900;flex:none}.three-item b{font-size:11px}.three-item span{display:block;font-size:10px;color:#8c8389;margin-top:2px}.rule-list{display:grid;gap:10px;margin-top:15px}.rule{background:#fff;border:1px solid var(--line);border-radius:19px;padding:15px}.rule-top{display:flex;gap:10px}.rule-num{width:30px;height:30px;border-radius:11px;background:#f2e7ea;color:#9a626c;display:grid;place-items:center;font-size:11px;font-weight:900;flex:none}.rule-input{width:100%;border:1px solid #eee7e6;background:#fffaf9;border-radius:12px;padding:9px 10px;outline:none}.rule-input.title{font-size:12px;font-weight:800}.rule-input.copy{margin-top:8px;min-height:58px;font-size:11px;color:#7a7278;resize:vertical}.mini-actions{display:flex;gap:9px;margin-top:13px}.mini-actions button{flex:1;border-radius:15px;padding:11px 12px;font-weight:800;font-size:11px}.small-note{font-size:10px;color:#989095;margin-top:7px;text-align:center}
+.identity-card{margin-top:12px;padding:16px 17px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#fff,#f7f2f4);box-shadow:var(--shadow-sm)}.identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.identity-cell{padding:10px 11px;border:1px solid var(--line);border-radius:14px;background:#fff}.identity-cell span{display:block;font-size:9px;color:#999097}.identity-cell b{display:block;font-size:12px;margin-top:2px}.identity-link{margin-top:10px;width:100%;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 11px;font-size:10px;color:#665c63;word-break:break-all;text-align:left}.identity-warning{font-size:9px;color:#9a7b84;margin-top:7px}.resume-card{display:none;margin-top:12px}.resume-card.show{display:block}
+.join-card{margin-top:12px;padding:21px;border-radius:25px;background:linear-gradient(145deg,#f8eeee,#eef1f6);border:1px solid var(--line);box-shadow:var(--shadow)}.join-list{display:grid;gap:9px;margin-top:13px}.join-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px}.join-item span{display:block;font-size:9px;color:#999097}.join-item b{font-size:11px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#2d2930;color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;font-weight:700;opacity:0;pointer-events:none;transition:.22s;z-index:50;box-shadow:0 12px 30px rgba(40,34,39,.22)}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.conversation-panel{margin-top:15px;padding:19px;border:1px solid var(--line);border-radius:23px;background:linear-gradient(145deg,#fffafa,#f5f0f3);box-shadow:var(--shadow-sm)}
+.conversation-panel h3{font-size:17px;margin:0}.conversation-panel p{font-size:11px;color:var(--muted);margin:4px 0 13px}
+.record-list{display:grid;gap:9px}.record-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px}.record-left{min-width:0}.record-left b{display:block;font-size:11px}.record-left span{display:block;font-size:10px;color:#8c8389;margin-top:2px}.record-state{border:0;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;white-space:nowrap;background:#f1ecef;color:#7a6f76}.record-state.done{background:#e5efe6;color:#6d8974}
+.talk-link{margin-top:10px;width:100%;border:1px solid var(--line);background:#fff;border-radius:15px;padding:11px 12px;text-align:left;font-size:11px;color:#665c63;display:flex;justify-content:space-between;align-items:center}.talk-link strong{font-size:11px}.talk-link em{font-style:normal;font-size:10px;color:#8c8389;line-height:1.5}.talk-link span:last-child{font-size:15px}
+
+.privacy-panel{margin-top:12px;padding:14px;border:1px solid #eadfe1;border-radius:17px;background:#fff8fa;color:#6f6268;font-size:11px;line-height:1.55}
+.privacy-panel strong{display:block;font-size:12px;color:#3d373b;margin-bottom:5px}
+.privacy-targets{display:grid;gap:8px;margin-top:10px}.privacy-target{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;border:1px solid var(--line);background:#fff;border-radius:14px}
+.privacy-target b{font-size:11px}.privacy-target span{font-size:9px;color:#8d8389}.privacy-btn{border:0;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;background:#f1e8ef;color:#756374}.privacy-btn.primary{background:#2f2b30;color:#fff}.privacy-btn.deny{background:#fff;border:1px solid var(--line);color:#7a7076}
+.shared-answer{display:none;margin-top:12px;padding:14px;border:1px solid #dde8df;border-radius:17px;background:#f8fbf8}.shared-answer.open{display:block}.shared-answer .answer-title{font-size:11px;color:#718276;font-weight:800}.shared-answer .answer-main{font-size:15px;font-weight:800;margin-top:4px}.shared-answer .answer-flex{font-size:10px;color:#7e8a82;margin-top:3px}.privacy-status{margin-top:8px;font-size:10px;color:#887d83}
+.modal-backdrop{position:fixed;inset:0;background:rgba(43,34,39,.34);display:none;align-items:flex-end;justify-content:center;z-index:80}.modal-backdrop.open{display:flex}
+.talk-modal{width:min(560px,100%);max-height:88vh;overflow:auto;background:#fcfaf9;border-radius:28px 28px 0 0;padding:20px 18px 28px;box-shadow:0 -20px 60px rgba(44,35,40,.18)}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.modal-head h3{margin:0;font-size:22px;line-height:1.2}.modal-close{border:1px solid var(--line);background:#fff;width:36px;height:36px;border-radius:12px;color:#7a7077;font-weight:800}.talk-reason{margin-top:12px;padding:13px 14px;border-radius:16px;background:#f6f0f2;color:#776d73;font-size:11px;line-height:1.55}.talk-section-title{font-size:11px;font-weight:800;color:#8a8086;margin:18px 0 8px}.prompt-list{display:grid;gap:8px}.prompt-item{padding:11px 12px;background:#fff;border:1px solid var(--line);border-radius:14px;font-size:11px;color:#61585e}.record-area{width:100%;min-height:100px;border:1px solid var(--line);background:#fff;border-radius:15px;padding:11px 12px;resize:vertical;outline:none;font-size:11px;color:#61585e}.record-actions{display:flex;gap:9px;margin-top:10px}.record-actions button{flex:1;border-radius:15px;padding:12px;font-weight:800;font-size:11px}.mark-done{background:#2f2b30;color:#fff;border:1px solid #2f2b30}.mark-pending{background:#fff;color:#746d72;border:1px solid var(--line)}.saved-note{margin-top:9px;font-size:10px;color:#8a8187}.saved-note strong{color:#6e646b}
+@media (max-width:420px){.hero h1{font-size:38px}.people-grid{gap:7px}.mini-person{padding:11px}.feature-grid{gap:9px}.count-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar"><div class="topbar-inner"><div class="brand"><div class="brand-mark"><img src="living_in_sync_mark.png" alt="LIVING IN SYNC"></div><div>住得合拍<small>LIVING IN SYNC</small></div></div><div class="header-pill">4–6 分钟 · 一起住之前</div></div></header>
+  <main class="page">
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="eyebrow">COMMON LIVING · 共同生活</div>
+        <h1>让一起住，<br>少一点尴尬。</h1>
+        <p>不是为了提前定下一堆规矩，而是让你们在真正一起生活之前，先知道彼此在意什么。</p>
+        <div class="hero-visual">
+          <div class="visual-head"><span class="mini-pill">一个空间，多个人</span><span class="mini-note">各自填 · 一起看</span></div>
+          <div class="people-grid"><div class="mini-person"><div class="mini-dot">A</div><b>你</b><p>各自填写</p></div><div class="mini-person"><div class="mini-dot">B</div><b>室友</b><p>独立回答</p></div><div class="mini-person"><div class="mini-dot">C</div><b>更多人</b><p>都可以加入</p></div></div>
+          <div class="hero-copy-note"><b>不是让你们变得一样。</b><div>只是先知道，哪里一样，哪里不一样。</div></div>
+        </div>
+        <button class="cta" onclick="showCreate()"><span>创建一个生活空间</span><span>→</span></button>
+        <button class="secondary" onclick="tryJoinFromPrompt()">我有室友发来的链接 / Room Code</button>
+        <div class="note">无需注册 · 每个人用自己的手机填写</div>
+      <div class="join-card resume-card" id="resumeCard"><b>继续我的共同生活空间</b><div class="join-list" id="resumeList"></div><button class="cta" style="margin-top:10px" onclick="resumeLastRoom()"><span>继续进入</span><span>→</span></button></div>
+      </div>
+      <div class="section-title"><h2>它会帮你们做什么</h2><span>先理解，再沟通</span></div>
+      <div class="feature-grid">
+        <div class="feature"><div class="num">01</div><h3>生活偏好</h3><p>睡眠、整洁、空调、食物、访客、费用……把平时不太好开口的小事先说出来。</p></div>
+        <div class="feature"><div class="num">02</div><h3>共同画像</h3><p>看见你们的共识，也看见最容易出现分歧的地方。</p></div>
+        <div class="feature"><div class="num">03</div><h3>值得聊聊</h3><p>不是强迫你们签规则，而是提醒：这几件事最好提前聊一下。</p></div>
+        <div class="feature"><div class="num">04</div><h3>留下共识</h3><p>聊完以后，把你们真正决定的事情留下来，之后还可以回来看看。</p></div>
+      </div>
+      <div class="section-soft"><div class="soft-row"><div class="soft-icon">✦</div><div><b>共同生活的麻烦，往往从“小事没说清楚”开始。</b><p>所以我们先不解决所有事情，只帮你们把最值得聊的三件事找出来。</p></div></div></div>
+    </section>
+
+    <section id="create" class="screen">
+      <button class="back" onclick="showScreen('home')">← 返回首页</button>
+      <div class="room-card">
+        <div class="eyebrow">CREATE A SPACE</div>
+        <h2>先建立一个共同生活空间。</h2>
+        <p>你可以给它取个名字，再邀请其他一起住的人加入。</p>
+        <div class="field"><label>空间名称</label><input id="roomName" placeholder="例如：2027 秋季宿舍 / Sunset House" maxlength="30"></div>
+        <div class="field"><label>一共几个人一起住？</label><div class="count-grid" id="countGrid"></div><div class="helper">先按计划住的人数来选，最多 6 人。后面也可以再试。</div></div>
+        <div class="field"><label>你的名字 / 昵称</label><input id="creatorName" placeholder="例如：Alano" maxlength="16"></div>
+        <button class="cta" onclick="startRoom()"><span>创建并开始填写</span><span>→</span></button>
+      </div>
+    </section>
+
+    <section id="share" class="screen">
+      <button class="back" onclick="showScreen('home')">← 返回首页</button>
+      <div class="invite-card">
+        <div class="invite-top"><div><div class="eyebrow">INVITE</div><div class="invite-num" id="shareCount">1 / 3</div></div><small>你已经完成自己的部分。<br>把这个链接发给下一位一起住的人。</small></div>
+        <div class="participant-row" id="shareParticipants"></div>
+        <div class="identity-card" id="shareIdentityCard">
+          <b>这个空间会一直保存，也属于你</b>
+          <div class="identity-grid"><div class="identity-cell"><span>Room Code</span><b id="shareRoomCode">—</b></div><div class="identity-cell"><span>我的昵称</span><b id="shareMyIdentity">—</b></div><div class="identity-cell"><span>我的成员码</span><b id="shareMemberCode">—</b></div><div class="identity-cell"><span>我的回答</span><b id="shareMyProgress">—</b></div></div>
+          <button class="identity-link" id="sharePersonalLink" onclick="copyPersonalLink()">复制我的专属链接</button>
+          <div class="identity-warning">专属链接只建议你自己保存，不要转发给室友。室友使用普通 Room 链接即可加入。</div>
+        </div>
+        <div class="invite-link" id="shareLinkText"></div>
+        <button class="cta" onclick="shareNext()"><span>分享给下一位</span><span>↗</span></button>
+        <button class="secondary" onclick="renderCloudResult();showScreen('result')">现在先看看当前结果</button>
+        <div class="small-note">Room 会持续保存。每个人用自己的手机加入；之后可以回来继续填写、修改回答和更新共识。</div>
+      </div>
+      <div class="join-card"><b>你们的人</b><div class="join-list" id="shareList"></div></div>
+    </section>
+
+    <section id="join" class="screen">
+      <button class="back" onclick="showScreen('home')">← 返回首页</button>
+      <div class="join-card">
+        <div class="eyebrow">JOIN A SPACE</div>
+        <h2 id="joinTitle">有人邀请你一起住。</h2>
+        <p id="joinCopy">先填你自己的部分。你不会在填写时看到别人的答案。</p>
+        <div class="field"><label>你的名字 / 昵称</label><input id="joinName" placeholder="例如：Mia" maxlength="16"></div>
+        <div class="join-list" id="joinPeople"></div>
+        <button class="cta" onclick="startJoin()"><span>开始填写我的部分</span><span>→</span></button>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen">
+      <button class="back" onclick="prevQ()">← 上一题</button>
+      <div class="step-note"><span id="qCount">01 / 16</span><span id="qRoom"></span></div>
+      <div class="progress"><i id="progressBar" style="width:6.25%"></i></div>
+      <div class="participant-row" id="quizParticipants"></div>
+      <div class="question-card">
+        <div class="tiny" id="qTiny">生活偏好</div>
+        <h2 id="qTitle"></h2><p id="qDesc"></p>
+        <div class="options" id="options"></div>
+        <div class="flexity"><div class="flexity-label">这件事对你来说有多重要？</div><div class="flexity-grid" id="flexityGrid"><button onclick="selectFlex(0)">可以商量</button><button onclick="selectFlex(1)">希望尽量满足</button><button onclick="selectFlex(2)">这是我的底线</button></div></div>
+        <div class="row-actions"><button class="ghost" onclick="skipQuestion()">先跳过</button><button class="primary" onclick="nextQ()" id="nextBtn">下一题</button></div>
+      </div>
+    </section>
+
+    <section id="result" class="screen">
+      <button class="back" onclick="showScreen('home')">← 返回首页</button>
+      <div class="result-hero"><div class="tiny">共同生活画像 · <span id="resultRoomName"></span></div><h2 id="resultTitle">你们有 3 件值得提前聊聊。</h2><p id="resultSummary"></p><div class="focus-row"><div class="focus-number"><strong id="resultFocusCount">3</strong><span>件</span></div><div class="focus-copy"><b>最值得提前聊聊</b><span id="resultMeta">基于你们的生活偏好</span></div></div><div class="legend"><span><i class="dot high"></i>最好先谈</span><span><i class="dot mid"></i>建议聊聊</span><span><i class="dot low"></i>可以顺其自然</span></div></div>
+      <div class="group-summary"><div class="summary-head"><b>你们一起住的人</b><span id="resultPeopleCount"></span></div><div class="chip-row" id="resultPeople"></div></div>
+      <div class="identity-card" id="resultIdentityCard"><b>我的空间身份</b><div class="identity-grid"><div class="identity-cell"><span>Room Code</span><b id="resultRoomCode">—</b></div><div class="identity-cell"><span>我的昵称</span><b id="resultMyIdentity">—</b></div><div class="identity-cell"><span>我的成员码</span><b id="resultMemberCode">—</b></div><div class="identity-cell"><span>我的回答</span><b id="resultMyProgress">—</b></div></div><button class="identity-link" id="resultPersonalLink" onclick="copyPersonalLink()">复制我的专属链接</button><div class="identity-warning">以后回来还能继续查看、修改自己的回答，也能继续编辑“聊过的”共识。</div></div>
+      <div class="talk-card"><h3>优先聊聊</h3><p id="priorityTalkCopy">先从最值得开始的几件看看，其他差异都会保留在下面。</p><div class="three-list" id="threeList"></div><button class="secondary" id="showAllDiffBtn" onclick="toggleAllDifferences()">查看全部差异</button></div>
+      <div class="group-profile"><h3 id="groupProfileTitle">你们的共同生活画像</h3><p id="groupProfileCopy">看看你们共同的生活节奏，以及彼此最值得注意的地方。</p><div class="profile-mix" id="groupProfileTags"></div><div class="profile-note">这不是性格测试，也不是给谁打分，只是把你们的回答翻译成更直观的生活偏好。</div></div>
+      <div class="profile-section" id="personalProfilesSection" style="display:none"><div class="profile-title"><h3>每个人的生活偏好</h3><span>各自更在意什么 · 不代表好坏</span></div><div class="profile-grid" id="personalProfiles"></div></div>
+      <div class="compare-section-title" id="allDiffTitle"><div><h3>全部生活差异</h3><span>16 项都会保留，优先级只代表建议先聊什么。</span></div></div>
+      <div class="compare-list" id="compareList"></div>
+      <div class="conversation-panel"><h3>我们聊过的事</h3><p>把真正讨论过的事情记下来，不需要写成长篇聊天记录。</p><div class="record-list" id="recordList"></div></div>
+      <button class="cta" onclick="shareResult()"><span>分享这份共同画像</span><span>↗</span></button>
+      <button class="secondary" onclick="editMyAnswers()">修改我的回答</button>
+      <div class="small-note">结果页不代表谁对谁错。先看到差异，再把真正聊过的事情留下来。</div>
+    </section>
+  </main>
+  <div class="modal-backdrop" id="talkModal" onclick="closeTalkModal(event)">
+    <div class="talk-modal" role="dialog" aria-modal="true">
+      <div class="modal-head"><div><div class="eyebrow">LET'S TALK</div><h3 id="talkModalTitle">聊聊这件事</h3></div><button class="modal-close" onclick="closeTalkModal()">×</button></div>
+      <div class="talk-reason" id="talkModalReason"></div>
+      <div class="privacy-panel" id="privacyPanel"></div>
+      <div class="shared-answer" id="sharedAnswerPanel"></div>
+      <div class="talk-section-title">可以聊这几件小事</div><div class="prompt-list" id="talkPrompts"></div>
+      <div class="talk-section-title">聊完以后，想留下一句什么共识？</div>
+      <textarea id="talkRecord" class="record-area" placeholder="例如：晚上 11 点后公共区域尽量保持安静。"></textarea>
+      <div class="record-actions"><button class="mark-pending" onclick="saveTalkRecord(false)">还没聊完</button><button class="mark-done" onclick="saveTalkRecord(true)">我们聊过了</button></div>
+      <div class="saved-note" id="talkSavedNote"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+</div>
+
+
+
+
+<script>
+(function(){
+  'use strict';
+
+  var QUESTIONS = [
+    {cat:'作息',title:'晚上，你通常希望共同空间从什么时候开始尽量安静？',desc:'不是要求所有人同时睡觉，只是先知道彼此对夜里的声音有多敏感。',opts:[['21:30 左右','比较早进入安静状态'],['23:00 左右','正常生活，但希望夜里收一点声音'],['00:30 以后','晚睡或作息比较自由'],['我对声音不太敏感','有一点声音通常也没关系']]},
+    {cat:'整洁',title:'你觉得公共区域怎样才算“够干净”？',desc:'重点不是谁更爱干净，而是大家心里的“够干净”是不是差不多。',opts:[['不影响使用就行','有点乱也没关系'],['用完尽量恢复原状','保持基本整洁'],['希望一直保持整洁','公共区域最好比较有秩序'],['长期凌乱我会很难受','整洁程度会明显影响我']]},
+    {cat:'家务',title:'你更希望家务怎么分？',desc:'家务最容易出现的摩擦，不是“做不做”，而是大家默认的分工方式不同。',opts:[['谁看到谁顺手做','不用固定分工'],['固定分工','每个人负责一些事情'],['轮流做','按周期或任务轮换'],['有需要再一起商量','我比较灵活']]},
+    {cat:'边界',title:'室友的东西，你更希望怎么处理？',desc:'默认边界越清楚，很多小尴尬就越少。',opts:[['直接用就行','日常小东西不用太见外'],['小东西可以，大件先问','大多数情况先打个招呼'],['基本都先问','我比较在意个人物品边界'],['除非明确说可以，否则不要碰','这是比较明确的边界']]},
+    {cat:'访客',title:'朋友来家里玩，你觉得怎样比较舒服？',desc:'“来坐一会儿”和“在家长期待着”对共同空间的影响可能完全不同。',opts:[['随时都可以','不需要专门报备'],['偶尔来没问题','频率不要太高就行'],['最好提前说一声','让大家心里有数'],['我更喜欢公共空间安静一点','访客最好比较少']]},
+    {cat:'过夜',title:'有人在家里过夜，你的接受程度是？',desc:'过夜客人比普通来访更容易影响隐私、作息和公共空间。',opts:[['完全没问题','偶尔或经常都可以'],['偶尔可以','不要太频繁'],['最好提前说','提前沟通我会更舒服'],['我不太能接受','希望共同空间保持稳定']]},
+    {cat:'食物',title:'冰箱里的食物，你更倾向于怎么处理？',desc:'先把“这是大家的”还是“这是我的”说清楚，能少掉很多小误会。',opts:[['大家都可以吃','比较随意，互相分享'],['有些共享、有些个人','分清楚哪些可以拿'],['基本各吃各的','默认是个人的'],['除非明确说可以，否则不要拿','我很在意食物边界']]},
+    {cat:'个人空间',title:'和室友一起生活时，你对“自己的空间和独处时间”有多在意？',desc:'有的人喜欢一起待着，有的人需要明确的独处时间。提前知道彼此的边界，会少很多尴尬。',opts:[['有自己的空间很重要','希望别人尽量不要随意进入或打扰我'],['希望有一定的独处时间','平时可以相处，但我也需要自己的节奏'],['比较随和','偶尔被打扰或者一起待着都没关系'],['我很喜欢和室友一起活动','共同生活对我来说就是一起玩、一起聊天']]},
+    {cat:'费用',title:'水电、网费等共同开支，你更倾向于？',desc:'先确定一种大家都舒服的方式，之后就不用每次重新讨论。',opts:[['简单 AA','共同支出直接平分'],['月底统一算','记下来，定期结一次'],['根据实际使用分','谁用多少尽量对应多少'],['哪种都可以商量','我比较灵活']]},
+    {cat:'温度',title:'空调 / 暖气，你通常更偏向哪边？',desc:'温度是共同生活里很容易被低估的一件小事。',opts:[['偏凉','喜欢清爽、空气流动感'],['中间','室温舒服就行'],['偏暖','不喜欢太冷'],['我比较随意','大家舒服就行']]},
+    {cat:'宠物',title:'如果一起生活的人养宠物，你的接受程度是？',desc:'宠物可能影响毛发、气味、噪音、公共空间和清洁，所以最好提前说。',opts:[['很喜欢，完全没问题','我很享受和宠物一起生活'],['可以接受，希望提前说','提前沟通就好'],['可以接受，但希望不影响公共空间','我比较在意卫生和空间'],['我不太能接受','宠物会明显影响我的生活'],['我对毛发、气味或叫声比较敏感','这对我可能是重要边界']]},
+    {cat:'在家',title:'你平时有多需要在家里保持安静、专注？',desc:'有人大部分时间在外面，有人每天都在家，这会直接影响共同空间的节奏。',opts:[['大部分时间都在外面','在家时间比较少'],['偶尔在家学习 / 工作','有时需要安静'],['经常在家，需要一定安静','居家学习或工作比较多'],['大部分时间都在家，希望环境比较稳定','我很依赖家庭环境']]},
+    {cat:'厨房',title:'你平时会怎么使用厨房？',desc:'做饭频率、油烟和厨房占用时间，都是很具体的共同生活差异。',opts:[['经常做饭','厨房是日常生活的一部分'],['偶尔做饭','有需要的时候做'],['很少做饭','通常在外面解决'],['基本不用厨房','厨房对我不太重要']]},
+    {cat:'烟酒',title:'你对共同生活空间里有人抽烟或电子烟怎么看？',desc:'烟味、空气和公共空间边界，很可能是需要提前确认的生活底线。',opts:[['完全可以接受','我不太介意'],['可以，但希望在固定区域','最好不要到处抽'],['尽量不要在室内','室内空气对我比较重要'],['我比较介意烟味','希望共同空间保持无烟'],['我不能接受室内吸烟 / 电子烟','这是我的明确边界']]},
+    {cat:'饮酒',title:'你对室友在家里喝酒或小型聚会的接受程度是？',desc:'重点不是你喝不喝酒，而是共同生活空间里这种活动会不会让你不舒服。',opts:[['完全没问题','偶尔聚会没关系'],['偶尔可以','频率不要太高'],['可以，但希望提前说一声','我希望有心理准备'],['我更喜欢家里保持安静','不太想有聚会'],['我不希望共同生活空间里饮酒或聚会','这是我的明确边界']]},
+    {cat:'沟通',title:'如果有一件小事让你不舒服，你更希望怎么处理？',desc:'真正影响共同生活的，不只是有没有分歧，还有出现分歧之后能不能自然地说出来。',opts:[['当下就说','小事早点说清楚'],['先缓一缓，再找时间说','想好怎么表达再聊'],['希望对方主动来问','我不太会主动提'],['我通常会自己消化一下','除非真的影响很大，我才会说']]}
+  ];
+  var FLEX_LABELS=['可以商量','希望尽量满足','这是我的底线'];
+  var TOPIC_NAMES=['安静时间','整洁程度','家务分担','私人物品','普通访客','过夜访客','食物 / 冰箱','个人空间','公共费用','空调 / 温度','宠物','在家学习 / 工作','厨房','烟 / 电子烟','饮酒 / 聚会','沟通方式'];
+  var TOPIC_ICONS=['◌','⌂','⌁','♡','✦','☾','▢','＋','¥','≈','🐾','⌂','♨','○','♢','↗'];
+  var room={name:'',total:3,participants:[],current:'',source:'host'};
+  var selectedTotal=3,step=0,answers=[],flex=[],activeTalkKey='';
+
+  // ===== Supabase Cloud MVP =====
+  // This is the browser-safe publishable key. Never put a secret/service-role key here.
+  var SUPABASE_URL='/api/supabase';
+  var SUPABASE_PUBLISHABLE_KEY='sb_publishable_68PBDwD-RbbAiXwaZ6wTEQ_-vjYMOrm';
+  var supabaseClient=null;
+  var supabaseLoadingPromise=null;
+
+  // Use the app's same-origin Cloudflare Pages proxy for Supabase.
+  // This avoids direct browser -> Supabase network/DNS failures on restricted networks.
+  function authStorageGet(){
+    try{return JSON.parse(localStorage.getItem('lis_supabase_session')||'null');}catch(e){return null;}
+  }
+  function authStorageSet(session){
+    try{localStorage.setItem('lis_supabase_session',JSON.stringify(session));}catch(e){}
+  }
+  function authHeaders(accessToken){
+    var h={
+      'apikey':SUPABASE_PUBLISHABLE_KEY,
+      'Content-Type':'application/json'
+    };
+    // Publishable keys are API keys, not JWTs. Only send Authorization
+    // when we actually have the user's Supabase access-token JWT.
+    if(accessToken) h['Authorization']='Bearer '+accessToken;
+    return h;
+  }
+  async function supaFetch(path, options){
+    var res=await fetch(SUPABASE_URL+path,Object.assign({headers:authHeaders()},options||{}));
+    var text=await res.text();
+    var data=null;try{data=text?JSON.parse(text):null;}catch(e){data=text;}
+    if(!res.ok){
+      var msg=(data&&data.message)|| (data&&data.error_description) || (data&&data.error)|| (typeof data==='string'?data:'Supabase request failed');
+      throw new Error(msg+' (HTTP '+res.status+')');
+    }
+    return data;
+  }
+  async function ensureSupabase(){
+    if(supabaseClient)return true;
+    if(!supabaseLoadingPromise){
+      supabaseLoadingPromise=Promise.resolve().then(function(){
+        supabaseClient={
+          auth:{
+            async getSession(){
+              var session=authStorageGet();
+              if(!session)return {data:{session:null},error:null};
+              var exp=session.expires_at?Number(session.expires_at)*1000:0;
+              if(exp && Date.now()>exp-30000 && session.refresh_token){
+                try{
+                  var refreshed=await fetch(SUPABASE_URL+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:authHeaders(),body:JSON.stringify({refresh_token:session.refresh_token})});
+                  var txt=await refreshed.text();var body=txt?JSON.parse(txt):null;
+                  if(refreshed.ok && body && body.access_token){
+                    session=body;session.expires_at=body.expires_at || Math.floor(Date.now()/1000)+(body.expires_in||3600);authStorageSet(session);
+                  }else{authStorageSet(null);session=null;}
+                }catch(e){authStorageSet(null);session=null;}
+              }
+              return {data:{session:session},error:null};
+            },
+            async signInAnonymously(){
+              var body=await supaFetch('/auth/v1/signup',{
+                method:'POST',
+                headers:authHeaders(),
+                body:JSON.stringify({data:{}})
+              });
+              if(body && body.access_token){
+                body.expires_at=body.expires_at || Math.floor(Date.now()/1000)+(body.expires_in||3600);
+                authStorageSet(body);
+              }
+              return {data:body,error:null};
+            },
+            async getUser(){
+              var session=authStorageGet();
+              if(!session||!session.access_token)throw new Error('未登录');
+              var res=await fetch(SUPABASE_URL+'/auth/v1/user',{headers:authHeaders(session.access_token)});
+              var txt=await res.text();var data=txt?JSON.parse(txt):null;
+              if(!res.ok)throw new Error((data&&data.message)||'获取用户失败');
+              return {data:{user:data},error:null};
+            }
+          },
+          async rpc(fn, args){
+            var session=authStorageGet();
+            return await restRequest('/rest/v1/rpc/'+encodeURIComponent(fn),{method:'POST',body:args||{}},session&&session.access_token);
+          },
+          from:function(table){return makeQuery(table);}
+        };
+        return true;
+      }).catch(function(e){
+        console.warn('Supabase REST client init failed',e);
+        supabaseLoadingPromise=null;
+        return false;
+      });
+    }
+    return supabaseLoadingPromise;
+  }
+  async function restRequest(path, opts, token){
+    var o=Object.assign({},opts||{});o.headers=authHeaders(token);o.headers.Prefer=o.headers.Prefer||'return=representation';
+    if(o.body && typeof o.body!=='string')o.body=JSON.stringify(o.body);
+    var res=await fetch(SUPABASE_URL+path,o);var txt=await res.text();var data=null;try{data=txt?JSON.parse(txt):null;}catch(e){data=txt;}
+    if(!res.ok){var msg=(data&&data.message)||(data&&data.hint)||(data&&data.details)||(typeof data==='string'?data:'Supabase request failed');throw new Error(msg+' (HTTP '+res.status+')');}
+    return {data:data,error:null};
+  }
+  function makeQuery(table){
+    var state={table:table,select:'*',filters:[],order:null,action:'select',payload:null,limit:null};
+    var api={
+      select:function(columns){state.select=columns||'*';state.action='select';return api;},
+      eq:function(col,val){state.filters.push([col,val]);return api;},
+      maybeSingle:async function(){
+        var q='?select='+encodeURIComponent(state.select);
+        state.filters.forEach(function(f){q+='&'+encodeURIComponent(f[0])+'=eq.'+encodeURIComponent(f[1]);});
+        if(state.order)q+='&order='+encodeURIComponent(state.order.col)+'.'+(state.order.ascending?'asc':'desc');
+        if(state.limit)q+='&limit='+state.limit;
+        var session=authStorageGet();var r=await restRequest('/rest/v1/'+encodeURIComponent(table)+q,{method:'GET'},session&&session.access_token);var arr=Array.isArray(r.data)?r.data:[];return {data:arr[0]||null,error:null};
+      },
+      order:function(col,opts){state.order={col:col,ascending:!opts||opts.ascending!==false};return api;},
+      upsert:async function(rows,opts){var session=authStorageGet();var prefer='resolution=merge-duplicates,return=minimal';return await restRequest('/rest/v1/'+encodeURIComponent(table),{method:'POST',headers:Object.assign(authHeaders(session&&session.access_token),{Prefer:prefer}),body:rows},session&&session.access_token);},
+      update:function(payload){state.action='update';state.payload=payload;return api;},
+      insert:async function(payload){var session=authStorageGet();return await restRequest('/rest/v1/'+encodeURIComponent(table),{method:'POST',body:payload},session&&session.access_token);}
+    };
+    return new Proxy(api,{get:function(target,prop){
+      if(prop==='then')return undefined;
+      if(prop==='updateAfterEq')return undefined;
+      if(prop==='eq' && state.action==='update')return function(col,val){
+        var filters=state.filters.slice();filters.push([col,val]);
+        return (async function(){var q='?';filters.forEach(function(f,i){q+=(i?'&':'')+encodeURIComponent(f[0])+'=eq.'+encodeURIComponent(f[1]);});var session=authStorageGet();return await restRequest('/rest/v1/'+encodeURIComponent(table)+q,{method:'PATCH',body:state.payload},session&&session.access_token);})();
+      };
+      return target[prop];
+    }});
+  }
+  var cloud={ready:false,memberId:null,spaceId:null,inviteCode:null,memberCode:null,memberToken:null,nickname:'',members:[],diffs:[],discussions:{},shareRequests:[]};
+  var cloudInitPromise=null;
+  ensureSupabase();
+
+  async function initCloud(){
+    if(cloud.ready) return true;
+    if(cloudInitPromise) return await cloudInitPromise;
+    cloudInitPromise=(async function(){
+      var lastError=null;
+      for(var attempt=0;attempt<3;attempt++){
+        try{
+          if(!navigator.onLine) throw new Error('当前设备没有网络连接');
+          var loaded=await ensureSupabase();
+          if(!loaded) throw new Error('云端接口初始化失败');
+          var sess=await supabaseClient.auth.getSession();
+          if(sess.error) throw sess.error;
+          if(!sess.data.session){
+            var sign=await supabaseClient.auth.signInAnonymously();
+            if(sign&&sign.error) throw sign.error;
+          }
+          // Verify that the session is actually usable before marking cloud ready.
+          var me=await supabaseClient.auth.getUser();
+          if(!me || me.error || !me.data || !me.data.user) throw new Error('匿名登录没有建立成功');
+          cloud.ready=true;
+          cloud.initError=null;
+          return true;
+        }catch(e){
+          lastError=e;
+          cloud.ready=false;
+          cloud.initError=e;
+          // A stale/broken locally cached session should not block a clean anonymous sign-in.
+          if(attempt===0){
+            try{authStorageSet(null);}catch(_e){}
+          }
+          if(attempt<2){
+            await new Promise(function(resolve){setTimeout(resolve,700*(attempt+1));});
+          }
+        }
+      }
+      cloud.ready=false;
+      cloud.initError=lastError||new Error('Supabase 初始化失败');
+      return false;
+    })();
+    try{
+      return await cloudInitPromise;
+    }finally{
+      // Keep the promise only while a working cloud session exists.
+      if(!cloud.ready) cloudInitPromise=null;
+    }
+  }
+  async function currentUser(){var loaded=await ensureSupabase();if(!loaded)throw new Error('云端库加载失败');var r=await supabaseClient.auth.getUser();if(r.error)throw r.error;return r.data.user;}
+  function cloudError(e){return (e&&((e.message||e.details||e.hint)))||String(e||'未知错误');}
+  function cloudInviteLink(){return baseUrl()+'#room='+encodeURIComponent(cloud.inviteCode);}
+  function cloudPersonalLink(){return baseUrl()+'#member='+encodeURIComponent(cloud.inviteCode)+'&token='+encodeURIComponent(cloud.memberToken||'');}
+  function saveLastRoom(){try{localStorage.setItem('lis_last_room',JSON.stringify({spaceId:cloud.spaceId,inviteCode:cloud.inviteCode,memberId:cloud.memberId,memberCode:cloud.memberCode,memberToken:cloud.memberToken,nickname:cloud.nickname,roomName:room.name,total:room.total}));}catch(e){}}
+  function loadLastRoom(){try{return JSON.parse(localStorage.getItem('lis_last_room')||'null');}catch(e){return null;}}
+  function renderIdentityCards(){
+    var n=(answers||[]).filter(function(v){return v!==null&&typeof v!=='undefined';}).length;
+    if($('shareRoomCode'))$('shareRoomCode').textContent=cloud.inviteCode||'—'; if($('shareMyIdentity'))$('shareMyIdentity').textContent=cloud.nickname||room.current||'—'; if($('shareMemberCode'))$('shareMemberCode').textContent=cloud.memberCode||'—'; if($('shareMyProgress'))$('shareMyProgress').textContent=n+'/'+QUESTIONS.length;
+    if($('resultRoomCode'))$('resultRoomCode').textContent=cloud.inviteCode||'—'; if($('resultMyIdentity'))$('resultMyIdentity').textContent=cloud.nickname||room.current||'—'; if($('resultMemberCode'))$('resultMemberCode').textContent=cloud.memberCode||'—'; if($('resultMyProgress'))$('resultMyProgress').textContent=n+'/'+QUESTIONS.length;
+  }
+  window.copyPersonalLink=function(){if(!cloud.memberToken){toast('个人专属链接还没有准备好。');return;}copyText(cloudPersonalLink());};
+  async function cloudCreateSpace(name,total,nickname){
+    var r=await supabaseClient.rpc('create_space',{p_name:name,p_total_members:total,p_nickname:nickname}); if(r.error)throw r.error; var row=Array.isArray(r.data)?r.data[0]:r.data; if(!row)throw new Error('创建空间后没有拿到空间信息');
+    cloud.spaceId=row.space_id;cloud.memberId=row.member_id;cloud.inviteCode=row.invite_code;cloud.memberCode=row.member_code||'';cloud.memberToken=row.member_token||'';cloud.nickname=row.nickname||nickname;saveLastRoom();return row;
+  }
+  async function cloudJoinSpace(spaceId,inviteCode,nickname){
+    var r=await supabaseClient.rpc('join_space',{p_space_id:spaceId,p_invite_code:inviteCode,p_nickname:nickname}); if(r.error)throw r.error; var row=Array.isArray(r.data)?r.data[0]:r.data; if(!row)throw new Error('加入空间后没有拿到成员信息');
+    cloud.spaceId=row.space_id||spaceId;cloud.inviteCode=row.invite_code||inviteCode;cloud.memberId=row.member_id;cloud.memberCode=row.member_code||'';cloud.memberToken=row.member_token||'';cloud.nickname=row.nickname||nickname;saveLastRoom();return row;
+  }
+  async function cloudClaimMember(inviteCode,memberToken,nickname){
+    var r=await supabaseClient.rpc('claim_member',{p_invite_code:inviteCode,p_member_token:memberToken,p_nickname:nickname||null}); if(r.error)throw r.error; var row=Array.isArray(r.data)?r.data[0]:r.data; if(!row)throw new Error('个人身份恢复失败');
+    cloud.spaceId=row.space_id;cloud.inviteCode=row.invite_code;cloud.memberId=row.member_id;cloud.memberCode=row.member_code||'';cloud.memberToken=row.member_token||memberToken;cloud.nickname=row.nickname||nickname||'';room.name=row.name;room.total=Number(row.total_members)||3;room.current=cloud.nickname;room.source='cloud-member';saveLastRoom();return row;
+  }
+  async function cloudGetPublicSpace(spaceId,inviteCode){
+    // V3 guarantees the code-based public lookup. Keep the older
+    // space-id helper out of the critical path so the frontend only
+    // depends on the functions that are present in the final migration.
+    var r=await supabaseClient.rpc('get_space_public_by_code',{p_invite_code:String(inviteCode||'').toUpperCase()});
+    if(r.error)throw r.error;
+    var row=Array.isArray(r.data)?r.data[0]:r.data;
+    if(!row) return null;
+    if(spaceId && String(row.id)!==String(spaceId)) return null;
+    return row;
+  }
+  async function cloudGetPublicSpaceByCode(inviteCode){var r=await supabaseClient.rpc('get_space_public_by_code',{p_invite_code:inviteCode});if(r.error)throw r.error;return Array.isArray(r.data)?r.data[0]:r.data;}
+  async function cloudGetCurrentMember(spaceId){
+    var u=await currentUser();var r=await supabaseClient.from('members').select('id,nickname,member_code,member_token').eq('space_id',spaceId).eq('user_id',u.id).maybeSingle();if(r.error)throw r.error;
+    if(r.data){cloud.memberId=r.data.id;cloud.nickname=r.data.nickname||'';cloud.memberCode=r.data.member_code||'';cloud.memberToken=r.data.member_token||'';}return r.data;
+  }
+  async function cloudLoadOwnAnswers(){
+    if(!cloud.memberId)return;var r=await supabaseClient.from('answers').select('question_index,answer,flexibility,updated_at').eq('member_id',cloud.memberId).order('question_index',{ascending:true});if(r.error)throw r.error;
+    answers=new Array(QUESTIONS.length).fill(null);flex=new Array(QUESTIONS.length).fill(0);(r.data||[]).forEach(function(x){var i=Number(x.question_index);if(i>=0&&i<QUESTIONS.length){answers[i]=Number(x.answer);flex[i]=Number(x.flexibility)||0;}});step=0;while(step<QUESTIONS.length&&answers[step]!==null)step++;renderIdentityCards();
+  }
+
+  async function cloudStatuses(spaceId){
+    var r=await supabaseClient.rpc('get_space_member_statuses',{p_space_id:spaceId,p_expected_questions:QUESTIONS.length});
+    if(r.error)throw r.error; cloud.members=r.data||[]; return cloud.members;
+  }
+  async function cloudDifferences(spaceId){
+    var r=await supabaseClient.rpc('get_space_differences',{p_space_id:spaceId});
+    if(r.error)throw r.error;
+    cloud.diffs=r.data||[]; return cloud.diffs;
+  }
+  var cloudAutosaveTimer=null;function queueCloudAutosave(){if(!(cloud.ready&&cloud.memberId))return;clearTimeout(cloudAutosaveTimer);cloudAutosaveTimer=setTimeout(function(){cloudSaveOwnAnswers().catch(function(e){console.warn(e);});},350);}
+  async function cloudSaveOwnAnswers(){
+    var rows=[];
+    for(var i=0;i<answers.length;i++){
+      var av=answers[i]; if(av===null||typeof av==='undefined')continue;
+      rows.push({member_id:cloud.memberId,question_index:i,answer:String(av),flexibility:String(flex[i]||0)});
+    }
+    var r=await supabaseClient.from('answers').upsert(rows,{onConflict:'member_id,question_index'});
+    if(r.error)throw r.error;
+  }
+  async function cloudLoadDiscussions(){
+    var r=await supabaseClient.from('discussions').select('id,topic,status,note,updated_at').eq('space_id',cloud.spaceId).order('updated_at',{ascending:false});
+    if(r.error)throw r.error;
+    cloud.discussions={};(r.data||[]).forEach(function(x){cloud.discussions[x.topic]={done:x.status==='resolved',note:x.note||'',updatedAt:new Date(x.updated_at).getTime()};});
+    return cloud.discussions;
+  }
+  async function cloudLoadShareRequests(){
+    var r=await supabaseClient.from('answer_share_requests').select('id,requester_member_id,target_member_id,question_index,status,created_at,updated_at').eq('space_id',cloud.spaceId).order('updated_at',{ascending:false});
+    if(r.error)throw r.error; cloud.shareRequests=r.data||[]; return cloud.shareRequests;
+  }
+  async function cloudCreateShareRequest(questionIndex,targetMemberId){
+    var row={space_id:cloud.spaceId,requester_member_id:cloud.memberId,target_member_id:targetMemberId,question_index:questionIndex,status:'pending'};
+    // Keep this compatible with the small REST query adapter above: insert()
+    // returns a promise directly, so do not chain .select().single().
+    var r=await supabaseClient.from('answer_share_requests').insert(row);
+    if(r.error)throw r.error;
+    await cloudLoadShareRequests();
+    return (cloud.shareRequests||[]).find(function(x){return x.requester_member_id===cloud.memberId&&x.target_member_id===targetMemberId&&Number(x.question_index)===Number(questionIndex)&&x.status==='pending';})||null;
+  }
+  async function cloudUpdateShareRequest(requestId,status){
+    // Same REST adapter constraint: update().eq() already returns the request.
+    var r=await supabaseClient.from('answer_share_requests').update({status:status,updated_at:new Date().toISOString()}).eq('id',requestId);
+    if(r.error)throw r.error;
+    await cloudLoadShareRequests();
+    return (cloud.shareRequests||[]).find(function(x){return String(x.id)===String(requestId);})||null;
+  }
+  async function cloudLoadSharedAnswer(targetMemberId,questionIndex){
+    var r=await supabaseClient.from('answers').select('answer,flexibility').eq('member_id',targetMemberId).eq('question_index',questionIndex).maybeSingle();
+    if(r.error)throw r.error; return r.data;
+  }
+
+  async function cloudSaveDiscussion(topic,done,note){
+    var existing=await supabaseClient.from('discussions').select('id').eq('space_id',cloud.spaceId).eq('topic',topic).maybeSingle();
+    if(existing.error)throw existing.error;
+    var status=done?'resolved':'open';
+    var r;
+    if(existing.data) r=await supabaseClient.from('discussions').update({status:status,note:note,updated_at:new Date().toISOString()}).eq('id',existing.data.id);
+    else r=await supabaseClient.from('discussions').insert({space_id:cloud.spaceId,topic:topic,status:status,note:note});
+    if(r.error)throw r.error;
+    await cloudLoadDiscussions();await cloudLoadShareRequests();
+  }
+
+  function cloudResultRows(){
+    var rows=cloud.diffs.map(function(d){
+      var spread=(Number(d.answer_max)||0)-(Number(d.answer_min)||0);
+      var fspread=(Number(d.flex_max)||0)-(Number(d.flex_min)||0);
+      var priority=Math.min(100,spread*18+fspread*14);
+      var level=priority>=48?'高':priority>=24?'中':'低';
+      return {index:Number(d.question_index),name:TOPIC_NAMES[Number(d.question_index)]||('第 '+(Number(d.question_index)+1)+' 项'),icon:TOPIC_ICONS[Number(d.question_index)]||'✦',spread:spread,flexSpread:fspread,priority:priority,level:level,reason:topicReason(Number(d.question_index),spread,fspread),answered:Number(d.answered_count)||0};
+    });
+    rows.sort(function(a,b){return b.priority-a.priority;});
+    return rows;
+  }
+  function cloudCompletionCount(){var n=0;for(var i=0;i<cloud.members.length;i++)if(cloud.members[i].is_complete)n++;return n;}
+  function cloudLevelLabel(level){return level==='高'?'最好先谈':level==='中'?'建议聊聊':'可以顺其自然';}
+
+  function renderCloudShare(){
+    $('shareCount').textContent=cloudCompletionCount()+' / '+(room.total||3);
+    $('shareLinkText').textContent=cloudInviteLink();renderIdentityCards();
+    $('shareParticipants').innerHTML=cloud.members.map(function(m){return '<span class="participant-chip">'+escapeHtml(m.nickname)+'</span>';}).join('');
+    $('shareList').innerHTML=cloud.members.map(function(m){return '<div class="join-item"><span>'+ (m.is_complete?'已完成':'已加入，尚未完成') +'</span><b>'+escapeHtml(m.nickname)+'</b></div>';}).join('');
+  }
+
+  function renderCloudResult(){
+    var complete=cloudCompletionCount();
+    var rows=cloudResultRows();
+    var top=rows.slice(0,3);
+    $('resultRoomName').textContent=room.name;renderIdentityCards();
+    $('resultPeopleCount').textContent=(cloud.members.length||room.total||0)+' 人';
+    $('resultPeople').innerHTML='<span class="summary-chip">答案会按隐私规则保存</span>';
+    $('resultFocusCount').textContent=complete>=2?top.length:0;
+    $('showAllDiffBtn').style.display=complete>=2?'block':'none';
+    $('allDiffTitle').style.display='none';
+    if(complete<2){
+      $('resultTitle').textContent='等更多人完成，再一起看差异。';
+      $('resultSummary').textContent='现在还没有足够多人完成回答。每个人都只会保存自己的答案；完成后，空间会自动整理出值得聊聊的地方。';
+      $('resultMeta').textContent='目前 '+complete+' 人完成 / '+(room.total||0)+' 人';
+      $('threeList').innerHTML='<div class="empty-state">至少 2 个人完成后，这里会显示“值得聊聊”的差异。</div>';
+      $('groupProfileTitle').textContent='共同生活空间正在形成';
+      $('groupProfileCopy').textContent='差异会在大家完成后被整理出来；个人具体答案不会默认展示。';
+      $('groupProfileTags').innerHTML='<span class="profile-tag">差异可被发现 · 回答不会默认暴露</span>';
+      $('personalProfiles').innerHTML='';
+      $('personalProfiles').parentElement.style.display='none';
+      $('compareList').innerHTML='<div class="empty-state">完成更多人之后，这里会出现共同差异。</div>';
+      $('compareList').classList.add('open');
+      $('allDiffTitle').style.display='none';
+      $('showAllDiffBtn').style.display='none';
+      renderCloudTalkRecords(rows);
+      return;
+    }
+    $('resultTitle').textContent='你们有 '+top.length+' 件值得提前聊聊。';
+    $('resultSummary').textContent='先看到差异，但不默认看到彼此的具体答案。想交换某一项的具体想法，需要对方同意。';
+    $('resultMeta').textContent='基于 '+complete+' 个人的完整回答 · 默认不展示具体答案';
+    $('groupProfileTitle').textContent='让差异被看见，而不是让彼此被暴露。';
+    $('groupProfileCopy').textContent='共同生活空间会先告诉你们哪里不同；具体回答和在意程度保留给各自，只有获得对方同意后才会交换。';
+    $('groupProfileTags').innerHTML='<span class="profile-tag">差异可见</span><span class="profile-tag">具体答案默认私密</span><span class="profile-tag">可请求交换想法</span>';
+    $('personalProfiles').innerHTML=''; if($('personalProfilesSection'))$('personalProfilesSection').style.display='none';
+    $('threeList').innerHTML=top.map(function(r,i){return '<button class="three-item" onclick="openTalk('+i+')"><span><strong>0'+(i+1)+' · '+escapeHtml(r.name)+'</strong><br><em>'+cloudLevelLabel(r.level)+' · 具体回答默认不展示</em></span><span>→</span></button>';}).join('');
+    $('compareList').innerHTML=rows.map(function(r,i){return '<div class="compare-card"><div class="compare-head"><div class="compare-name"><div class="compare-icon">'+r.icon+'</div><div><h4>'+escapeHtml(r.name)+'</h4><div class="sub">'+cloudLevelLabel(r.level)+'</div></div></div><span class="level '+(r.level==='高'?'high':r.level==='中'?'mid':'low')+'">'+cloudLevelLabel(r.level)+'</span></div><div class="compare-reason">'+escapeHtml(r.reason)+'</div></div>';}).join('');
+    $('compareList').classList.remove('open');
+    $('showAllDiffBtn').textContent='查看全部差异 · '+rows.length+' 项';
+    renderCloudTalkRecords(rows);
+  }
+
+  function renderCloudTalkRecords(rows){
+    var box=$('recordList');if(!box)return;
+    var html='';
+    var current=cloud.memberId;
+    var pending=(cloud.shareRequests||[]).filter(function(q){return q.status==='pending' && q.target_member_id===current;});
+    if(pending.length){
+      html+='<div class="privacy-panel"><strong>有人想查看你的部分想法</strong><div class="privacy-status">你可以逐项决定是否分享。不同意不会影响共同差异。</div>';
+      for(var p=0;p<pending.length;p++){
+        var req=pending[p],reqMember=(cloud.members||[]).find(function(m){return m.member_id===req.requester_member_id;}),name=reqMember?reqMember.nickname:'另一位成员',topic=TOPIC_NAMES[Number(req.question_index)]||('第 '+(Number(req.question_index)+1)+' 项');
+        html+='<div class="privacy-target" style="margin-top:8px"><div><b>'+escapeHtml(name)+'</b><br><span>想看看你在“'+escapeHtml(topic)+'”的想法</span></div><button class="privacy-btn primary" onclick="respondCloudShare('+JSON.stringify(String(req.id))+',\'accepted\','+JSON.stringify(String(req.question_index))+')">处理</button></div>';
+      }
+      html+='</div>';
+    }
+    var ordered=[];for(var i=0;i<rows.length;i++){if(cloud.discussions[rows[i].name])ordered.push({r:rows[i],idx:i});}for(var j=0;j<Math.min(rows.length,3);j++){if(!cloud.discussions[rows[j].name])ordered.push({r:rows[j],idx:j});}
+    for(var k=0;k<ordered.length;k++){var rr=ordered[k].r,idx2=ordered[k].idx,rec=cloud.discussions[rr.name];html+='<div class="record-item"><div class="record-left"><b>'+escapeHtml(rr.name)+'</b><span>'+(rec&&rec.note?escapeHtml(rec.note):'还没有留下共识')+'</span></div><button class="record-state '+(rec&&rec.done?'done':'')+'" onclick="openTalk('+idx2+')">'+(rec&&rec.done?'已聊过':'聊聊 →')+'</button></div>';}
+    box.innerHTML=html||'<div class="empty-state">完成更多人后，这里会保留你们聊过的事情。</div>';
+  }
+
+  var shareState={topic:'',targetIndex:null,status:'none',answer:null,flex:null,requestId:null};
+  function resetSharePanel(){
+    var p=$('privacyPanel'),a=$('sharedAnswerPanel');
+    if(p)p.innerHTML=''; if(a){a.innerHTML='';a.classList.remove('open');}
+  }
+  function answerFor(member, questionIndex){
+    if(!member||!member.answers)return null;
+    var av=member.answers[questionIndex];
+    if(av===null||typeof av==='undefined')return null;
+    var opt=QUESTIONS[questionIndex] && QUESTIONS[questionIndex].opts[Number(av)];
+    return {value:opt?opt[0]:'已回答',flex:FLEX_LABELS[Number(member.flex&&member.flex[questionIndex]||0)]||FLEX_LABELS[0]};
+  }
+  function renderLocalSharePanel(r){
+    resetSharePanel();
+    var p=$('privacyPanel');if(!p)return;
+    var others=[];
+    for(var i=0;i<room.participants.length;i++){if(i!==room.participants.findIndex(function(x){return x.name===room.current;}))others.push(i);} 
+    if(others.length===0){p.innerHTML='<strong>这一项的具体回答默认私密。</strong><div class="privacy-status">只有其他成员同意后，你才会看到他们的具体想法。</div>';return;}
+    var targetText='';
+    if(shareState.status==='requested' && shareState.targetIndex!==null){
+      var target=room.participants[shareState.targetIndex];
+      p.innerHTML='<strong>查看请求已发给 '+escapeHtml(target.name)+'。</strong><div class="privacy-status">体验模式：下面模拟对方手机收到请求。只有点击“同意分享”，具体回答才会显示。</div><div class="privacy-targets"><div class="privacy-target"><div><b>'+escapeHtml(target.name)+'</b><br><span>有人想看看你在“'+escapeHtml(r.name)+'”的想法</span></div><button class="privacy-btn primary" onclick="demoAcceptShare()">同意分享</button></div><div class="privacy-target"><div><b>隐私边界</b><br><span>不同意就不会显示具体回答和底线</span></div><button class="privacy-btn deny" onclick="demoDeclineShare()">暂不分享</button></div></div>';
+      return;
+    }
+    if(shareState.status==='accepted' && shareState.targetIndex!==null){
+      var acceptedTarget=room.participants[shareState.targetIndex];var ans=answerFor(acceptedTarget,r.index);
+      p.innerHTML='<strong>'+escapeHtml(acceptedTarget.name)+' 已同意分享这一项。</strong><div class="privacy-status">只有这一项被分享，不会开放对方其他回答。</div>';
+      var a=$('sharedAnswerPanel');if(a&&ans){a.innerHTML='<div class="answer-title">'+escapeHtml(acceptedTarget.name)+' 对“'+escapeHtml(r.name)+'”的想法</div><div class="answer-main">'+escapeHtml(ans.value)+'</div><div class="answer-flex">在意程度：'+escapeHtml(ans.flex)+'</div>';a.classList.add('open');}
+      return;
+    }
+    var html='<strong>想看看某位成员对这一项的具体想法？</strong><div class="privacy-status">默认只显示“你们不同”。具体回答和底线不会直接公开。</div><div class="privacy-targets">';
+    for(var j=0;j<others.length;j++){var idx=others[j],m=room.participants[idx];html+='<div class="privacy-target"><div><b>'+escapeHtml(m.name)+'</b><br><span>只请求“'+escapeHtml(r.name)+'”这一项</span></div><button class="privacy-btn primary" onclick="requestDemoShare('+idx+')">发起查看请求</button></div>';}
+    html+='</div>';p.innerHTML=html;
+  }
+  window.requestDemoShare=function(targetIndex){
+    shareState.status='requested';shareState.targetIndex=targetIndex;
+    localStorage.setItem('livingInSyncShareState',JSON.stringify(shareState));
+    var r=groupResults().find(function(x){return x.name===activeTalkKey.split('::').pop();});
+    if(r)renderLocalSharePanel(r);
+    toast('已发起查看请求。');
+  };
+  window.demoAcceptShare=function(){
+    shareState.status='accepted';localStorage.setItem('livingInSyncShareState',JSON.stringify(shareState));
+    var r=groupResults().find(function(x){return x.name===activeTalkKey.split('::').pop();});
+    if(r)renderLocalSharePanel(r);
+    toast('对方已同意分享这一项。');
+  };
+  window.demoDeclineShare=function(){
+    shareState.status='declined';localStorage.setItem('livingInSyncShareState',JSON.stringify(shareState));
+    var p=$('privacyPanel');var a=$('sharedAnswerPanel');if(a){a.innerHTML='';a.classList.remove('open');}
+    if(p)p.innerHTML='<strong>对方暂不分享。</strong><div class="privacy-status">你仍然可以只根据差异本身来讨论，不会看到对方的具体回答。</div>';
+    toast('对方保留了这一项的隐私。');
+  };
+  // Replace local/cloud talk opener with a privacy-first flow.
+  async function renderCloudSharePanel(r){
+    resetSharePanel();
+    var p=$('privacyPanel');if(!p)return;
+    await cloudLoadShareRequests();
+    var current=cloud.memberId;
+    var others=(cloud.members||[]).filter(function(m){return m.member_id!==current;});
+    var relevant=(cloud.shareRequests||[]).filter(function(q){return Number(q.question_index)===Number(r.index);});
+    var myAccepted=relevant.find(function(q){return q.requester_member_id===current && q.status==='accepted';});
+    var myPending=relevant.find(function(q){return q.requester_member_id===current && q.status==='pending';});
+    var incoming=relevant.filter(function(q){return q.target_member_id===current && q.status==='pending';});
+    if(incoming.length){
+      var req=incoming[0],reqMember=others.find(function(m){return m.member_id===req.requester_member_id;});
+      p.innerHTML='<strong>'+escapeHtml(reqMember?reqMember.nickname:'另一位成员')+' 想查看你在“'+escapeHtml(r.name)+'”的想法。</strong><div class="privacy-status">只有你同意，这一项的具体回答和在意程度才会对对方可见。</div><div class="privacy-targets"><button class="privacy-btn primary" onclick="respondCloudShare('+JSON.stringify(String(req.id))+',\'accepted\','+JSON.stringify(String(req.question_index))+')">同意分享</button><button class="privacy-btn deny" onclick="respondCloudShare('+JSON.stringify(String(req.id))+',\'declined\','+JSON.stringify(String(req.question_index))+')">暂不分享</button></div>';
+      return;
+    }
+    if(myAccepted){
+      var targetMember=others.find(function(m){return m.member_id===myAccepted.target_member_id;});
+      var ans=await cloudLoadSharedAnswer(myAccepted.target_member_id,r.index);
+      p.innerHTML='<strong>对方已同意交换这一项。</strong><div class="privacy-status">只分享这一项，不会开放其他答案。</div>';
+      var a=$('sharedAnswerPanel');if(a&&ans){var opt=QUESTIONS[r.index]&&QUESTIONS[r.index].opts[Number(ans.answer)];a.innerHTML='<div class="answer-title">'+escapeHtml(targetMember?targetMember.nickname:'对方')+' 对“'+escapeHtml(r.name)+'”的想法</div><div class="answer-main">'+escapeHtml(opt?opt[0]:'已回答')+'</div><div class="answer-flex">在意程度：'+escapeHtml(FLEX_LABELS[Number(ans.flexibility)||0]||FLEX_LABELS[0])+'</div>';a.classList.add('open');}
+      return;
+    }
+    if(myPending){
+      var waiting=others.find(function(m){return m.member_id===myPending.target_member_id;});
+      p.innerHTML='<strong>已向 '+escapeHtml(waiting?waiting.nickname:'对方')+' 发起查看请求。</strong><div class="privacy-status">对方同意后，你才能看到这一项的具体回答和在意程度。</div>';
+      return;
+    }
+    var html='<strong>想看看某位成员对这一项的具体想法？</strong><div class="privacy-status">默认只显示“你们不同”。选择一位成员后，只有对方同意才会交换这一项。</div><div class="privacy-targets">';
+    for(var i=0;i<others.length;i++){var m=others[i];html+='<div class="privacy-target"><div><b>'+escapeHtml(m.nickname)+'</b><br><span>只请求“'+escapeHtml(r.name)+'”这一项</span></div><button class="privacy-btn primary" onclick="requestCloudShare('+JSON.stringify(String(m.member_id))+','+JSON.stringify(String(r.index))+')">发起请求</button></div>'; }
+    html+='</div>';p.innerHTML=html;
+  }
+  window.requestCloudShare=async function(targetMemberId,questionIndex){
+    try{await cloudCreateShareRequest(Number(questionIndex),targetMemberId);toast('已发起查看请求。');var r=cloudResultRows().find(function(x){return Number(x.index)===Number(questionIndex);});if(r)await renderCloudSharePanel(r);}catch(e){toast('发送请求失败：'+cloudError(e));}
+  };
+  window.respondCloudShare=async function(requestId,status,questionIndex){
+    try{await cloudUpdateShareRequest(requestId,status);toast(status==='accepted'?'已同意分享这一项。':'已保留这一项的隐私。');var r=cloudResultRows().find(function(x){return Number(x.index)===Number(questionIndex);});if(r)await renderCloudSharePanel(r);renderCloudTalkRecords(cloudResultRows());}catch(e){toast('处理分享请求失败：'+cloudError(e));}
+  };
+  window.openTalk=async function(index){
+    var rows=room.source==='local-demo'?groupResults():cloudResultRows();var r=rows[index];if(!r)return;
+    activeTalkKey=talkKey(r.name);
+    $('talkModalTitle').textContent='聊聊「'+r.name+'」';
+    $('talkModalReason').textContent=r.reason;
+    var prompts=TALK_PROMPTS[r.name]||['你们各自最在意的是什么？','什么情况会让你觉得不舒服？','有没有一个双方都能接受的方式？'];
+    var html='';for(var i=0;i<prompts.length;i++)html+='<div class="prompt-item">'+escapeHtml(prompts[i])+'</div>';$('talkPrompts').innerHTML=html;
+    var saved=room.source==='local-demo'?readTalks()[r.name]:cloud.discussions[r.name];
+    $('talkRecord').value=saved?saved.note:'';$('talkSavedNote').innerHTML=saved?'上次记录：<strong>'+(saved.done?'已聊过':'还没聊完')+'</strong>':'';
+    if(room.source==='local-demo'){
+      try{var stored=JSON.parse(localStorage.getItem('livingInSyncShareState')||'null');if(stored&&stored.topic===r.name){shareState=stored;}else{shareState={topic:r.name,targetIndex:null,status:'none',answer:null,flex:null,requestId:null};}}catch(e){shareState={topic:r.name,targetIndex:null,status:'none',answer:null,flex:null,requestId:null};}
+      shareState.topic=r.name;renderLocalSharePanel(r);
+    }else{
+      await renderCloudSharePanel(r);
+    }
+    $('talkModal').classList.add('open');document.body.style.overflow='hidden';
+  };
+
+  window.saveTalkRecord=async function(done){
+    if(!activeTalkKey)return;var topic=activeTalkKey.split('::').pop(),note=$('talkRecord').value.trim();
+    if(room.source==='local-demo'){
+      var talks=readTalks();talks[talkKey(topic)]={done:!!done,note:note,updatedAt:Date.now()};writeTalks(talks);
+      closeTalkModal();renderTalkRecords();toast(done?'已记录：你们聊过了。':'先记下来，之后可以继续聊。');return;
+    }
+    if(cloud.ready&&cloud.spaceId){try{await cloudSaveDiscussion(topic,!!done,note);renderCloudTalkRecords(cloudResultRows());closeTalkModal();toast(done?'已记录：你们聊过了。':'先记下来，之后可以继续聊。');return;}catch(e){console.error(e);toast('保存共识失败：'+cloudError(e));return;}}
+    toast('云端暂时不可用。');
+  };
+
+  window.toggleAllDifferences=function(){
+    var list=$('compareList');if(!list)return;var open=list.classList.toggle('open');$('allDiffTitle').style.display=open?'block':'none';$('showAllDiffBtn').textContent=open?'收起全部差异':'查看全部差异 · '+(room.source==='local-demo'?groupResults().length:cloudResultRows().length)+' 项';if(open)$('allDiffTitle').scrollIntoView({block:'start'});
+  };
+  window.shareResult=function(){if(cloud.spaceId&&cloud.inviteCode){var link=cloudInviteLink();if(navigator.share){navigator.share({title:'住得合拍｜共同生活空间',text:'加入我们的共同生活空间，先完成自己的部分。',url:link}).catch(function(){});}else copyText(link);return;}copyText(baseUrl());};
+
+  window.startRoom=async function(){
+    var name=$('roomName').value.trim()||'我们的共同生活',creator=$('creatorName').value.trim();if(!creator){toast('先写一个你的名字或昵称。');return;}
+    if(!cloudInitPromise)cloudInitPromise=initCloud();var ok=await cloudInitPromise;if(!ok){toast('云端连接失败：'+cloudError(cloud.initError||new Error('Supabase 初始化失败')));return;}
+    resetRoom();room.name=name;room.total=selectedTotal;room.current=creator;room.source='cloud-host';
+    try{await cloudCreateSpace(name,selectedTotal,creator);await cloudStatuses(cloud.spaceId);resetAnswerState();renderQuizPeople();renderIdentityCards();renderQuestion();showScreen('quiz');}
+    catch(e){console.error(e);toast('创建空间失败：'+cloudError(e));}
+  };
+
+  window.nextQ=async function(){
+    if(answers[step]===null){toast('先选一个答案，再继续。');return;}
+    await cloudSaveOwnAnswers().catch(function(e){console.warn(e);});if(step<QUESTIONS.length-1){step++;renderQuestion();return;}
+    await window.__lisFinish(false);
+  };
+  window.skipQuestion=async function(){if(step<QUESTIONS.length-1){step++;renderQuestion();}else await window.__lisFinish(true);};
+  window.__lisFinish=async function(skipped){
+    var finalAnswers=answers.slice();if(skipped)for(var i=0;i<finalAnswers.length;i++)if(finalAnswers[i]===null)finalAnswers[i]=1;
+    answers=finalAnswers;
+    if(room.source==='local-demo'){
+      room.participants.push({name:room.current,answers:finalAnswers,flex:flex.slice()});
+      room.current='';
+      if(room.participants.length>=room.total){renderResult();showScreen('result');}
+      else{renderShare();showScreen('share');}
+      return;
+    }
+    try{
+      await cloudSaveOwnAnswers();
+      await cloudStatuses(cloud.spaceId);
+      await cloudDifferences(cloud.spaceId);
+      await cloudLoadDiscussions();await cloudLoadShareRequests();
+      var complete=cloudCompletionCount();
+      if(complete>=room.total){renderCloudResult();showScreen('result');}
+      else{renderCloudShare();showScreen('share');}
+    }catch(e){console.error(e);toast('答案保存失败：'+cloudError(e));}
+  };
+
+  window.startJoin=async function(){
+    var n=$('joinName').value.trim();if(!n){toast('先写一个你的名字或昵称。');return;}
+    if(!cloudInitPromise)cloudInitPromise=initCloud();var ok=await cloudInitPromise;if(!ok){toast('云端连接失败：'+cloudError(cloud.initError||new Error('Supabase 初始化失败')));return;}
+    try{await cloudJoinSpace(cloud.spaceId,cloud.inviteCode,n);var meta=await cloudGetPublicSpace(cloud.spaceId,cloud.inviteCode);room.name=meta.name;room.total=Number(meta.total_members)||3;room.current=cloud.nickname||n;room.source='cloud-join';await cloudStatuses(cloud.spaceId);await cloudLoadOwnAnswers();renderQuizPeople();renderQuestion();if(answers.every(function(v){return v!==null;})){await cloudDifferences(cloud.spaceId);await cloudLoadDiscussions();await cloudLoadShareRequests();renderCloudResult();showScreen('result');}else showScreen('quiz');}
+    catch(e){console.error(e);toast('加入共同生活空间失败：'+cloudError(e));}
+  };
+
+  window.loadHash=async function(){
+    var hash=window.location.hash||'';if(hash.indexOf('room=')<0&&hash.indexOf('member=')<0&&hash.indexOf('space=')<0)return;
+    if(!cloudInitPromise)cloudInitPromise=initCloud();var ok=await cloudInitPromise;if(!ok){toast('云端连接失败：'+cloudError(cloud.initError||new Error('Supabase 初始化失败')));return;}
+    try{var qs=new URLSearchParams(hash.replace(/^#/,'')||''),roomCode=qs.get('room'),token=qs.get('token');
+      if(token&&roomCode){await cloudClaimMember(roomCode,token,null);await cloudStatuses(cloud.spaceId);await cloudLoadOwnAnswers();renderIdentityCards();if(answers.every(function(v){return v!==null;})){await cloudDifferences(cloud.spaceId);await cloudLoadDiscussions();await cloudLoadShareRequests();renderCloudResult();showScreen('result');}else{renderQuizPeople();renderQuestion();showScreen('quiz');}return;}
+      if(roomCode){var meta=await cloudGetPublicSpaceByCode(roomCode);if(!meta){toast('这个 Room Code 不存在。');return;}cloud.spaceId=meta.id;cloud.inviteCode=meta.invite_code||roomCode;room={name:meta.name,total:Number(meta.total_members)||3,participants:[],current:'',source:'cloud-space',spaceId:meta.id};var member=await cloudGetCurrentMember(meta.id);await cloudStatuses(meta.id);if(member){room.current=member.nickname;await cloudLoadOwnAnswers();if(answers.every(function(v){return v!==null;})){await cloudDifferences(meta.id);await cloudLoadDiscussions();await cloudLoadShareRequests();renderCloudResult();showScreen('result');}else{renderQuizPeople();renderQuestion();showScreen('quiz');}}else{$('joinTitle').textContent='加入「'+meta.name+'」';$('joinCopy').textContent='每个人用自己的手机填写。你只会看到自己的答案；Room Code 会一直保留。';$('joinPeople').innerHTML=cloud.members.map(function(m){return '<div class="join-item"><span>'+(m.is_complete?'已完成':'已加入 · '+m.answer_count+'/16')+'</span><b>'+escapeHtml(m.nickname)+'</b></div>';}).join('');showScreen('join');}return;}
+      var spaceId=qs.get('space'),invite=qs.get('invite');if(spaceId&&invite){var meta2=await cloudGetPublicSpace(spaceId,invite);if(!meta2){toast('这个邀请链接无效或已失效。');return;}cloud.spaceId=spaceId;cloud.inviteCode=invite;room={name:meta2.name,total:Number(meta2.total_members)||3,participants:[],current:'',source:'cloud-space',spaceId:spaceId};var member2=await cloudGetCurrentMember(spaceId);await cloudStatuses(spaceId);if(member2){room.current=member2.nickname;await cloudLoadOwnAnswers();renderCloudResult();showScreen('result');}else{showScreen('join');}}
+    }catch(e){console.error(e);toast('读取共同生活空间失败：'+cloudError(e));}
+  };
+  async function resumeLastRoomInternal(){var saved=loadLastRoom();if(!saved||!saved.inviteCode)return false;try{if(!cloudInitPromise)cloudInitPromise=initCloud();var ok=await cloudInitPromise;if(!ok)throw cloud.initError||new Error('Supabase 初始化失败');if(saved.memberToken)await cloudClaimMember(saved.inviteCode,saved.memberToken,saved.nickname||null);else{var meta=await cloudGetPublicSpaceByCode(saved.inviteCode);if(!meta)throw new Error('Room 不存在');cloud.spaceId=meta.id;cloud.inviteCode=meta.invite_code;await cloudGetCurrentMember(meta.id);room.name=meta.name;room.total=Number(meta.total_members)||3;room.current=cloud.nickname||saved.nickname||'';}await cloudStatuses(cloud.spaceId);await cloudLoadOwnAnswers();await cloudLoadDiscussions();await cloudLoadShareRequests();renderIdentityCards();if(answers.every(function(v){return v!==null;})){await cloudDifferences(cloud.spaceId);renderCloudResult();showScreen('result');}else{renderQuizPeople();renderQuestion();showScreen('quiz');}return true;}catch(e){console.warn(e);return false;}}
+  window.resumeLastRoom=async function(){var ok=await resumeLastRoomInternal();if(!ok)toast('这个 Room 暂时无法恢复，请使用 Room Code 或个人专属链接。');};
+  window.editMyAnswers=async function(){if(String(room.source||'').indexOf('cloud')===0){try{await cloudLoadOwnAnswers();}catch(e){toast('读取自己的回答失败：'+cloudError(e));return;}}step=0;while(step<QUESTIONS.length&&answers[step]!==null)step++;if(step>=QUESTIONS.length)step=0;renderQuizPeople();renderQuestion();renderIdentityCards();showScreen('quiz');};
+
+  // Cloud route initialization.
+  initCount();
+  (function(){var saved=loadLastRoom();if(saved&&saved.inviteCode&&$('resumeCard')){$('resumeCard').classList.add('show');$('resumeList').innerHTML='<div class="join-item"><span>Room Code · 我的昵称</span><b>'+escapeHtml(saved.inviteCode)+' · '+escapeHtml(saved.nickname||'—')+'</b></div>';}})();
+  // Cloud is initialized on demand (or when an invite/recovery link is present).
+  // This avoids a single transient iOS/Safari network failure permanently poisoning
+  // the page's startup promise.
+  (function(){
+    var h=window.location.hash||'';
+    if(h.indexOf('=')>=0){
+      setTimeout(function(){
+        window.loadHash();
+      },0);
+    }
+  })();
+
+  function $(id){return document.getElementById(id);}
+  function showScreen(id){
+    var screens=document.querySelectorAll('.screen');
+    for(var i=0;i<screens.length;i++){screens[i].classList.toggle('active',screens[i].id===id);}
+    window.scrollTo(0,0);
+  }
+  function toast(msg){var box=$('toast');if(!box)return;box.textContent=msg;box.classList.add('show');clearTimeout(window.__lisToast);window.__lisToast=setTimeout(function(){box.classList.remove('show');},2600);}
+  function escapeHtml(value){return String(value).replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function initCount(){var html='';for(var i=2;i<=6;i++){html+='<button class="count-btn '+(i===selectedTotal?'active':'')+'" onclick="selectTotal('+i+')">'+i+' 人</button>';}if($('countGrid'))$('countGrid').innerHTML=html;}
+  window.selectTotal=function(n){selectedTotal=Math.max(2,Math.min(6,Number(n)||3));initCount();};
+  window.showCreate=function(){selectedTotal=3;initCount();$('roomName').value='';$('creatorName').value='';showScreen('create');};
+  function resetAnswerState(){step=0;answers=new Array(QUESTIONS.length);flex=new Array(QUESTIONS.length);for(var i=0;i<QUESTIONS.length;i++){answers[i]=null;flex[i]=0;}}
+  function resetRoom(){room={name:'',total:selectedTotal,participants:[],current:'',source:'host'};resetAnswerState();}
+  function isComplete(p){
+    if(!p||!p.answers||p.answers.length!==QUESTIONS.length)return false;
+    for(var i=0;i<p.answers.length;i++){if(p.answers[i]===null||typeof p.answers[i]==='undefined')return false;}
+    return true;
+  }
+  function completedCount(){var n=0;for(var i=0;i<room.participants.length;i++){if(isComplete(room.participants[i]))n++;}return n;}
+  function renderQuizPeople(){
+    var box=$('quizParticipants');if(!box)return;
+    var html='';
+    for(var i=0;i<room.participants.length;i++){html+='<span class="participant-chip">'+escapeHtml(room.participants[i].name)+'</span>';}
+    if(room.current)html+='<span class="participant-chip you">'+escapeHtml(room.current)+' · 你</span>';
+    box.innerHTML=html;
+    if($('qRoom'))$('qRoom').textContent=(room.name||'')+' · '+(cloud.inviteCode||'')+' · '+(cloud.nickname||room.current||'')+' · '+Math.min(room.total,Math.max(1,completedCount()+1))+'/'+room.total;
+  }
+  function renderQuestion(){
+    var q=QUESTIONS[step];if(!q)return;
+    $('qCount').textContent=(step+1<10?'0':'')+(step+1)+' / '+QUESTIONS.length;
+    $('qTiny').textContent=q.cat;$('qTitle').textContent=q.title;$('qDesc').textContent=q.desc;
+    $('progressBar').style.width=((step+1)/QUESTIONS.length*100)+'%';
+    var html='';
+    for(var i=0;i<q.opts.length;i++){html+='<button class="option '+(answers[step]===i?'selected':'')+'" onclick="selectOpt('+i+')"><strong>'+escapeHtml(q.opts[i][0])+'</strong><span>'+escapeHtml(q.opts[i][1])+'</span></button>';}
+    $('options').innerHTML=html;
+    var btns=document.querySelectorAll('#flexityGrid button');for(var j=0;j<btns.length;j++)btns[j].classList.toggle('active',flex[step]===j);
+    $('nextBtn').textContent=step===QUESTIONS.length-1?'完成我的部分':'下一题';
+  }
+  window.selectOpt=function(i){answers[step]=i;renderQuestion();queueCloudAutosave();renderIdentityCards();};
+  window.selectFlex=function(i){flex[step]=i;renderQuestion();queueCloudAutosave();renderIdentityCards();};
+  window.prevQ=function(){if(step>0){step--;renderQuestion();}else{showScreen('home');}};
+  function finishParticipant(skipped){
+    var finalAnswers=answers.slice();
+    if(skipped){for(var i=0;i<finalAnswers.length;i++){if(finalAnswers[i]===null)finalAnswers[i]=1;}}
+    room.participants.push({name:room.current,answers:finalAnswers,flex:flex.slice()});
+    room.current='';
+    if(room.participants.length>=room.total){renderResult();showScreen('result');return;}
+    renderShare();showScreen('share');
+  }
+
+  function encodeData(obj){
+    var str=JSON.stringify(obj),utf8=unescape(encodeURIComponent(str));
+    return btoa(utf8).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  }
+  function decodeData(str){
+    try{var pad='='.repeat((4-str.length%4)%4);var raw=atob(str.replace(/-/g,'+').replace(/_/g,'/')+pad);return JSON.parse(decodeURIComponent(escape(raw)));}catch(e){return null;}
+  }
+  function baseUrl(){return window.location.href.split('#')[0];}
+  function buildJoinLink(){return baseUrl()+'#join='+encodeData({v:6,room:{name:room.name,total:room.total},participants:room.participants});}
+  function buildResultLink(){return baseUrl()+'#result='+encodeData({v:6,room:{name:room.name,total:room.total},participants:room.participants});}
+  function renderShare(){
+    var done=room.participants.length;
+    $('shareCount').textContent=done+' / '+room.total;
+    $('shareLinkText').textContent=buildJoinLink();
+    var chips='';for(var i=0;i<room.participants.length;i++){chips+='<span class="participant-chip">'+escapeHtml(room.participants[i].name)+'</span>';}
+    $('shareParticipants').innerHTML=chips;
+    var list='';for(var j=0;j<room.participants.length;j++){list+='<div class="join-item"><span>已完成</span><b>'+escapeHtml(room.participants[j].name)+'</b></div>';}
+    $('shareList').innerHTML=list;
+  }
+  window.shareNext=function(){
+    if(room.source==='local-demo'){
+      $('joinTitle').textContent='继续加入「'+room.name+'」';
+      $('joinCopy').textContent='这是本机体验模式。下一位只需要填写自己的部分，不会看到上一位的具体答案。';
+      var html='';for(var i=0;i<room.participants.length;i++){html+='<div class="join-item"><span>已完成</span><b>'+escapeHtml(room.participants[i].name)+'</b></div>';}
+      $('joinPeople').innerHTML=html;
+      $('joinName').value='';
+      showScreen('join');
+      toast('现在可以让下一位继续填写。');
+      return;
+    }
+    var link=cloudInviteLink(),text='来加入「'+room.name+'」一起住。每个人用自己的手机填写自己的部分。Room Code：'+cloud.inviteCode;
+    if(navigator.share){navigator.share({title:'住得合拍｜加入共同生活空间',text:text,url:link}).catch(function(){});return;}
+    copyText(link);
+  };
+  function copyText(text){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast('邀请链接已复制。')}).catch(function(){toast('复制失败了，可以长按上面的链接复制。');});}
+    else{toast('可以长按上面的链接复制。');}
+  }
+  window.tryJoinFromPrompt=function(){var v=window.prompt('粘贴室友发来的邀请链接，或输入 Room Code，例如 SYNC-AB12CD：');if(!v)return;v=v.trim();if(/^https?:\/\//i.test(v)){window.location.href=v;return;}window.location.hash='#room='+encodeURIComponent(v.toUpperCase());window.loadHash();};
+
+  function applyJoinData(data){
+    if(!data||!data.room||!Array.isArray(data.participants))return false;
+    var total=Math.max(2,Math.min(6,Number(data.room.total)||3));
+    room={name:String(data.room.name||'我们的共同生活'),total:total,participants:Array.isArray(data.participants)?data.participants:[],current:'',source:'join'};
+    resetAnswerState();
+    $('joinTitle').textContent='加入「'+room.name+'」';
+    $('joinCopy').textContent='现在有 '+room.participants.length+' 人已经填完。你只需要完成自己的部分，完成后再把更新后的链接发给下一位。';
+    var html='';for(var i=0;i<room.participants.length;i++){html+='<div class="join-item"><span>已完成</span><b>'+escapeHtml(room.participants[i].name)+'</b></div>';}
+    $('joinPeople').innerHTML=html;
+    showScreen('join');
+    return true;
+  }
+
+  function topicReason(i,spread,flexSpread){
+    if(spread===0&&flexSpread===0)return '大家在这一项的期待比较接近。';
+    var map=[
+      '你们对夜间安静的时间点不完全一样，提前约定“什么时候开始安静”会轻松很多。',
+      '对“干净到什么程度”的想象不同，先把公共区域说具体，比一句“注意卫生”更有用。',
+      '有人偏向固定分工，有人更喜欢看到就做，最好提前确定一种大家都觉得公平的方式。',
+      '个人物品的边界不同，默认先问还是默认共享，最好提前说清楚。',
+      '对普通访客的接受度不同，提前说一声通常比临时解释更轻松。',
+      '对过夜客人的接受度不同，这通常比普通来访更值得提前聊清楚。',
+      '大家对食物共享的默认边界不一样，先分清哪些能拿、哪些默认是个人的。',
+      '你们对个人空间和独处时间的需求不同，提前说清楚“什么时候想自己待着”，会舒服很多。',
+      '费用偏好不同，先定一种最简单的记账方式，之后就不用每次重新讨论。',
+      '温度偏好存在差异，可以提前约定一个大家都能接受的范围。',
+      '你们对宠物的接受程度不同，尤其要注意毛发、气味、叫声和公共空间边界。',
+      '有人经常在家学习或工作，有人很少在家，这会直接影响对安静和公共空间的期待。',
+      '做饭频率不同，厨房占用、油烟和气味可能成为高频的小摩擦。',
+      '对室内吸烟或电子烟的接受程度不同，这类差异很可能属于需要提前确认的明确边界。',
+      '对在家饮酒或聚会的接受程度不同，提前说清楚频率和方式会更舒服。',
+      '有人习惯马上说，有人更想缓一缓。把彼此喜欢的沟通节奏讲清楚，会比等到不舒服以后再处理更轻松。'
+    ];
+    return map[i]||'这一项的生活偏好有一些不同，提前说清楚会更舒服。';
+  }
+  function priorityLevel(priority){return priority>=56?'高':priority>=28?'中':'低';}
+  function groupResults(){
+    var results=[];
+    var people=room.participants;
+    if(!people.length)return results;
+    for(var i=0;i<QUESTIONS.length;i++){
+      var vals=[],fs=[],names=[];
+      for(var j=0;j<people.length;j++){
+        var av=(people[j].answers&&people[j].answers[i]!==undefined&&people[j].answers[i]!==null)?Number(people[j].answers[i]):1;
+        var fv=(people[j].flex&&people[j].flex[i]!==undefined)?Number(people[j].flex[i]):0;
+        vals.push(av);fs.push(fv);names.push(people[j].name);
+      }
+      var min=Math.min.apply(Math,vals),max=Math.max.apply(Math,vals),spread=max-min;
+      var fmin=Math.min.apply(Math,fs),fmax=Math.max.apply(Math,fs),flexSpread=fmax-fmin;
+      var priority=spread*18+flexSpread*14;
+      var level=priorityLevel(priority);
+      var values=[];
+      for(var k=0;k<people.length;k++){
+        var opt=QUESTIONS[i].opts[vals[k]]||QUESTIONS[i].opts[1];
+        values.push({name:names[k],val:opt[0],flex:FLEX_LABELS[fs[k]]||FLEX_LABELS[0]});
+      }
+      results.push({index:i,name:TOPIC_NAMES[i],icon:TOPIC_ICONS[i],spread:spread,flexSpread:flexSpread,priority:priority,level:level,reason:topicReason(i,spread,flexSpread),values:values});
+    }
+    results.sort(function(a,b){return b.priority-a.priority;});
+    return results;
+  }
+  function profileForPerson(p){
+    var tags=[];
+    var map={
+      0:['作息偏早','晚间比较敏感','夜里比较自由','对声音较随和'],
+      1:['整洁要求较高','偏向保持整洁','接受一定弹性','对整洁比较随和'],
+      2:['顺手型家务','固定分工型','轮换型','比较灵活'],
+      3:['边界开放','小事先问','重视物品边界','边界明确'],
+      4:['访客开放','接受偶尔来访','偏好提前说','更爱安静'],
+      7:['需要独处','喜欢自己的节奏','比较随和','喜欢一起活动'],
+      10:['喜欢宠物','可以提前沟通','重视公共卫生','不太能接受宠物','对毛发/气味敏感'],
+      11:['常在外面','有时需要安静','经常在家','需要稳定环境'],
+      12:['经常做饭','偶尔做饭','很少做饭','厨房需求少'],
+      15:['喜欢直接说','偏好缓一缓','希望对方主动问','通常先自己消化']
+    };
+    for(var i in map){
+      var idx=Number(i), answer=p.answers[idx];
+      if(answer!==null&&answer!==undefined&&map[idx][answer])tags.push(map[idx][answer]);
+    }
+    return tags.slice(0,4);
+  }
+  function renderResult(){
+    var results=groupResults();
+    $('resultRoomName').textContent=room.name;
+    $('resultPeopleCount').textContent=room.participants.length+' 人';
+    var peopleHtml='';
+    for(var i=0;i<room.participants.length;i++){peopleHtml+='<span class="participant-chip">'+escapeHtml(room.participants[i].name)+'</span>';}
+    $('resultPeople').innerHTML=peopleHtml;
+    var top=results.slice(0,3);
+    $('resultFocusCount').textContent=room.participants.length>=2?top.length:0;
+    // Privacy-first: no personal profiles, no answer values, no flexibility/boundary labels.
+    var profileSection=$('personalProfiles').parentElement;
+    if(profileSection)profileSection.style.display='none';
+    if(room.participants.length<2){
+      $('resultTitle').textContent='先完成第一位，等大家都加入。';
+      $('resultSummary').textContent='每个人只保存自己的答案。等至少 2 个人完成后，这里只显示“哪里不同”，不会默认展示任何人的具体回答或底线。';
+      $('resultMeta').textContent='目前还没有足够多人形成共同差异';
+      $('threeList').innerHTML='<div class="empty-state">完成至少 2 个人之后，这里会显示“优先聊聊”的差异。</div>';
+      $('priorityTalkCopy').textContent='先不看具体答案。等更多人完成后，再决定哪些差异值得交换想法。';
+      $('groupProfileTitle').textContent='共同生活空间正在形成';
+      $('groupProfileCopy').textContent='个人具体回答不会默认展示。完成后，我们只先告诉你们哪里不同。';
+      $('groupProfileTags').innerHTML='<span class="profile-tag">具体回答默认私密</span><span class="profile-tag">底线默认私密</span>';
+      $('compareList').innerHTML='<div class="empty-state">还没有共同差异可比较。</div>';
+      $('compareList').classList.add('open');
+      $('allDiffTitle').style.display='none';
+      $('showAllDiffBtn').style.display='none';
+      renderTalkRecords();
+      return;
+    }
+    $('resultTitle').textContent='你们有 '+top.length+' 件值得提前聊聊。';
+    $('resultSummary').textContent='先看到差异，但不默认看到彼此的具体答案。想交换某一项的具体想法，需要对方主动同意。';
+    $('resultMeta').textContent='基于 '+room.participants.length+' 个人的回答 · 默认隐藏具体答案';
+    $('showAllDiffBtn').style.display='block';
+    $('groupProfileTitle').textContent='让差异被看见，而不是让彼此被暴露。';
+    $('groupProfileCopy').textContent='这里只告诉你们哪些生活习惯不同。具体回答、在意程度和底线，只有双方同意交换后才会显示。';
+    $('groupProfileTags').innerHTML='<span class="profile-tag">差异可见</span><span class="profile-tag">具体答案私密</span><span class="profile-tag">底线私密</span>';
+    var list='';
+    for(var j=0;j<top.length;j++){var r=top[j];list+='<button class="three-item" onclick="openTalk('+j+');"><span><strong>0'+(j+1)+' · '+escapeHtml(r.name)+'</strong><br><em>'+(r.level==='高'?'最好一起定一个具体边界。':r.level==='中'?'把期待说出来，别等发生了再解释。':'顺手确认一下就可以。')+'</em></span><span>→</span></button>';}
+    $('threeList').innerHTML=list;
+    // Privacy-safe “all differences”: topic + qualitative level + reason only.
+    var compareHtml='';
+    for(var k=0;k<results.length;k++){var x=results[k];compareHtml+='<div class="compare-card"><div class="compare-head"><div class="compare-name"><div class="compare-icon">'+x.icon+'</div><div><h4>'+escapeHtml(x.name)+'</h4><div class="sub">'+(k<3?'优先看这一项':'生活偏好的一个切面')+'</div></div></div><span class="level '+(x.level==='高'?'high':x.level==='中'?'mid':'low')+'">'+(x.level==='高'?'最好先谈':x.level==='中'?'建议聊聊':'可以顺其自然')+'</span></div><div class="compare-reason">'+escapeHtml(x.reason)+'</div></div>';}
+    $('compareList').innerHTML=compareHtml;
+    $('compareList').classList.remove('open');
+    $('allDiffTitle').style.display='none';
+    $('showAllDiffBtn').textContent='查看全部差异 · '+results.length+' 项';
+    renderTalkRecords();
+  }
+  function renderProfileSummary(top){
+    var counts={};
+    for(var i=0;i<room.participants.length;i++){
+      var tags=profileForPerson(room.participants[i]);
+      for(var j=0;j<tags.length;j++){counts[tags[j]]=(counts[tags[j]]||0)+1;}
+    }
+    var ranked=[];for(var key in counts){ranked.push({key:key,n:counts[key]});}
+    ranked.sort(function(a,b){return b.n-a.n;});
+    var tagHtml='';for(var k=0;k<Math.min(6,ranked.length);k++)tagHtml+='<span class="profile-tag">'+escapeHtml(ranked[k].key)+'</span>';
+    $('groupProfileTags').innerHTML=tagHtml||'<span class="profile-tag">正在生成共同画像</span>';
+    $('groupProfileTitle').textContent='你们的共同生活画像';
+    $('groupProfileCopy').textContent='你们最明显的差异集中在 '+top.map(function(r){return r.name;}).join('、')+'。其他地方大多可以顺其自然。';
+  }
+  function renderPersonalProfiles(){
+    var html='';
+    for(var i=0;i<room.participants.length;i++){
+      var tags=profileForPerson(room.participants[i]);
+      html+='<div class="profile-card"><div class="profile-head"><b>'+escapeHtml(room.participants[i].name)+'</b><span>个人生活偏好</span></div><div class="profile-tags">';
+      for(var j=0;j<tags.length;j++)html+='<span>'+escapeHtml(tags[j])+'</span>';
+      html+='</div></div>';
+    }
+    return html;
+  }
+  var TALK_PROMPTS={
+    '烟 / 电子烟':['室内是否完全不抽？','如果可以抽，固定在哪里？','有人介意烟味时，大家希望怎么处理？'],
+    '整洁程度':['公共区域做到什么程度算“够干净”？','看到别人留下的东西，谁来处理？','多久需要一起做一次比较彻底的整理？'],
+    '饮酒 / 聚会':['多大程度的聚会会让大家舒服？','需要提前多久说？','结束时间要不要有一个大概的范围？'],
+    '安静时间':['什么时候开始算“尽量安静”？','学习或睡觉时，什么声音最容易打扰？','如果一方还没睡，怎样一起舒服地处理？'],
+    '普通访客':['朋友来之前要不要提前说？','临时来访和提前约好的来访要不要区别？','家里人数多的时候，怎样让大家都舒服？'],
+    '过夜访客':['过夜前要不要提前说？','多久一次比较舒服？','如果有人需要安静或独处，怎么安排？'],
+    '食物 / 冰箱':['哪些东西默认可以共享？','哪些东西一定要先问？','买公共食物时怎么处理费用？'],
+    '个人空间':['什么时候你会比较想自己待着？','进入彼此的房间或空间前要不要先问？','如果一方想聊天、一方想安静，可以怎么说？'],
+    '家务分担':['固定分工、轮流还是看到就做？','哪些家务大家都觉得必须做？','如果有人这周特别忙，要怎么调整？'],
+    '沟通方式':['小事是马上说，还是先缓一缓？','什么样的表达会让你觉得舒服？','如果意见不同，你希望怎么继续聊？']
+  };
+  function talkKey(topic){return room.name+'::'+topic;}
+  function readTalks(){try{return JSON.parse(localStorage.getItem('livingInSyncTalks')||'{}');}catch(e){return {};}}
+  function writeTalks(data){try{localStorage.setItem('livingInSyncTalks',JSON.stringify(data));}catch(e){}}
+  window.closeTalkModal=function(e){if(e&&e.target&&e.target.id!=='talkModal')return;$('talkModal').classList.remove('open');document.body.style.overflow='';};
+  function renderTalkRecords(){
+    var box=$('recordList');if(!box)return;var results=groupResults();if(!results.length){box.innerHTML='<div class="empty-state">完成更多人之后，这里会保留你们聊过的事情。</div>';return;}
+    var data=readTalks(), saved=[];for(var i=0;i<results.length;i++){if(data[talkKey(results[i].name)])saved.push(results[i]);}
+    var list=saved.length?saved:results.slice(0,3),html='';
+    for(var j=0;j<list.length;j++){var r=list[j],rec=data[talkKey(r.name)],idx=results.indexOf(r);html+='<div class="record-item"><div class="record-left"><b>'+escapeHtml(r.name)+'</b><span>'+(rec&&rec.note?escapeHtml(rec.note):'还没有留下共识')+'</span></div><button class="record-state '+(rec&&rec.done?'done':'')+'" onclick="openTalk('+idx+')">'+(rec&&rec.done?'已聊过':'聊聊 →')+'</button></div>';}
+    box.innerHTML=html;
+  }
+  function loadHash(){
+    var hash=window.location.hash||'';if(hash.indexOf('=')<0)return;
+    var pieces=hash.substring(1).split('=');var type=pieces.shift();var data=decodeData(pieces.join('='));if(!data)return;
+    if(type==='join')applyJoinData(data);
+    else if(type==='result'){
+      if(!data.room||!Array.isArray(data.participants))return;
+      room={name:String(data.room.name||'我们的共同生活'),total:Math.max(2,Math.min(6,Number(data.room.total)||3)),participants:data.participants,current:'',source:'result'};resetAnswerState();renderResult();showScreen('result');
+    }
+  }
+  window.restartRoom=function(){window.location.hash='';showCreate();};
+
+  window.addEventListener('hashchange',function(){window.loadHash();});
+  // Cloud initialization is handled above.
+
+})();
+</script></body>
